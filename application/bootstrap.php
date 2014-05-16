@@ -54,7 +54,7 @@ ini_set('unserialize_callback_func', 'spl_autoload_call');
  * Set the default language
  */
 I18n::lang('en-us');
-
+Cookie::$salt = "$2a$12$8Tb47DMEA6LPhJFsfxTiBOwFnFUW96uJ1krZAMQnD2sUKZRSA3ARa";
 /**
  * Set Kohana::$environment if a 'KOHANA_ENV' environment variable has been supplied.
  *
@@ -82,7 +82,7 @@ if (isset($_SERVER['KOHANA_ENV']))
  * - boolean  expose      set the X-Powered-By header                        FALSE
  */
 Kohana::init(array(
-	'base_url'   => '/',
+	'base_url'   => 'http://localhost/inventario/',
 ));
 
 /**
@@ -99,14 +99,11 @@ Kohana::$config->attach(new Config_File);
  * Enable modules. Modules are referenced by a relative or absolute path.
  */
 Kohana::modules(array(
-	// 'auth'       => MODPATH.'auth',       // Basic authentication
-	// 'cache'      => MODPATH.'cache',      // Caching with multiple backends
-	// 'codebench'  => MODPATH.'codebench',  // Benchmarking tool
-	// 'database'   => MODPATH.'database',   // Database access
-	// 'image'      => MODPATH.'image',      // Image manipulation
-	// 'orm'        => MODPATH.'orm',        // Object Relationship Mapping
-	// 'unittest'   => MODPATH.'unittest',   // Unit testing
-	// 'userguide'  => MODPATH.'userguide',  // User guide and API documentation
+	 'cache'      => MODPATH.'cache',      // Caching with multiple backends
+	 'database'   => MODPATH.'database',   // Database access
+	 'orm'        => MODPATH.'orm',        // Object Relationship Mapping
+	 'A1'   	  => MODPATH.'A1',   // Unit testing
+	 'mysqli'  	  => MODPATH.'mysqli',  // User guide and API documentation
 	));
 
 /**
@@ -122,8 +119,15 @@ Kohana::modules(array(
  * Set the routes. Each route must have a minimum of a name, a URI and a set of
  * defaults for the URI.
  */
+Route::set('directory', '<directory>(/<controller>(/<action>(/<id>)))',array(
+		'directory' => 'backend'
+	)) -> defaults(array(
+		'controller' => 'inicio',
+		'action'     => 'index'
+	));
+
 Route::set('default', '(<controller>(/<action>(/<id>)))')
 	->defaults(array(
-		'controller' => 'welcome',
+		'controller' => 'inicio',
 		'action'     => 'index',
 	));
