@@ -81,8 +81,14 @@ if (isset($_SERVER['KOHANA_ENV']))
  * - boolean  caching     enable or disable internal caching                 FALSE
  * - boolean  expose      set the X-Powered-By header                        FALSE
  */
+Kohana::$environment = ($_SERVER['SERVER_NAME'] == "localhost" OR  $_SERVER['SERVER_NAME'] == "dev.helpersphp.net")
+						? Kohana::DEVELOPMENT
+						: Kohana::PRODUCTION ;
+
 Kohana::init(array(
-	'base_url'   => 'http://localhost/inventario/',
+			'base_url' => (Kohana::$environment==Kohana::DEVELOPMENT)
+							? 'http://localhost/inventario/'
+							: 'http://helpersphp.com/free/',
 ));
 
 /**
@@ -122,7 +128,7 @@ Kohana::modules(array(
 Route::set('directory', '<directory>(/<controller>(/<action>(/<id>)))',array(
 		'directory' => 'backend'
 	)) -> defaults(array(
-		'controller' => 'inicio',
+		'controller' => 'proveedores',
 		'action'     => 'index'
 	));
 

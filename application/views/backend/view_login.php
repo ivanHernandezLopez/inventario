@@ -3,48 +3,71 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <title>PANEL DE ADMINISTRACIÓN DE INVENTARIOS | LOGIN</title>
-        <script> URLSITE = '<?php echo URL::base(); ?>'; </script>
         <script type="text/javascript" src="<?php echo URL::base(); ?>assets/js/jquery.js"></script>
-        <script type="text/javascript" src="<?php echo URL::base(); ?>assets/js/backend/niceforms.js"></script>
+        <script type="text/javascript" src="<?php echo URL::base(); ?>assets/js/jquery-validate.js"></script>       
+        <script type="text/javascript" src="<?php echo URL::base(); ?>assets/js/jquery.fancybox.js"></script>
+        <link rel="stylesheet" type="text/css" href="<?php echo URL::base(); ?>assets/css/fancy/jquery.fancybox.css" media="screen"/>
         <link rel="stylesheet" type="text/css" media="all" href="<?php echo URL::base(); ?>assets/css/backend/style_login.css" />
     </head>
     <body>
-        <div id="main_container">   
-            <div class="login_form">        
-                <h3>Panel de administración</h3>
-                <a href="#" class="forgot_pass">Recuperar contraseña</a>         
-                <form action="<?php echo URL::base(); ?>backend/login" method="POST" class="niceform">        
-                    
-                    <fieldset>
-                    <label class="<?php echo $error; ?> error"><?php echo $mensaje; ?></label>
-
-                        <dl>
-                            <dt><label for="email">Usuario:</label></dt>
-                            <dd><input type="text" name="usuario" id="" size="54" /></dd>
-                        </dl>
-                        <dl>
-                            <dt><label for="password">Contraseña:</label></dt>
-                            <dd><input type="password" name="contrasena" id="" size="54" /></dd>
-                        </dl>
-                        
-                        <dl>
-                            <dt><label></label></dt>
-                            <dd>
-                        <input type="checkbox" name="remember" /><label class="check_label">Recordar</label>
-                            </dd>
-                        </dl>
-                        <input type="hidden" name="token" value="<?php echo Security::token(); ?>">
-                        <dl class="submit">
-                            <input type="submit" name="submit" class="boton" value="Ingresar" />
-                        </dl>                
-                    </fieldset>                
-                </form>
-            </div>   
-        </div>		
+        	<form id="login" action="<?php echo URL::base(); ?>backend/login" method="POST">
+                <h1>BIENVENIDO</h1>
+                <fieldset id="inputs">
+                    <input id="username" type="text" placeholder="Correo" autofocus  name="usuario" >   
+                    <input id="password" type="password" placeholder="Contraseña"  name="contrasena">
+                    <input type="hidden" name="token" value="<?php echo Security::token(); ?>">
+                    <label class="msg <?php echo $error; ?>"><?php echo $mensaje; ?></label>
+                </fieldset>
+                <fieldset id="actions">
+                    <input type="submit" id="submit" value="Ingresar">
+                    <a class="fancybox-effects-a fancybox.iframe" href="<?php echo URL::base(); ?>backend/login/recovery" >Olvido su contraseña?</a>
+                </fieldset>
+            </form>
     </body>
 </html>
+
 <script>
-$(document).ready(function(){
-    $( ".error" ).slideUp(2000).delay(1000);
-});
+    $(document).ready(function(){
+
+        $(".fancybox-effects-a").fancybox({           
+            padding: 0,
+            openEffect : 'elastic',
+            openSpeed  : 150,
+            closeEffect : 'elastic',
+            closeSpeed  : 150,
+            closeClick : true,
+            helpers : {
+               overlay : {
+                    closeClick : false,
+                    css : {
+                        'background' : 'rgba(238,238,238,0.85)'
+                    }
+                }
+            },
+            afterLoad:function(){
+
+            }
+        });
+        $("#login").validate({
+            rules: {
+                usuario: {
+                    required:true,
+                    email:true,
+                },
+                contrasena: 'required',          
+            },
+            messages:{
+                usuario:{
+                    required:'Campo requerido.',
+                    email:'Correo no valido.'
+                },
+                contrasena:{
+                    required:'Campo requerido.',
+                }
+            },       
+        });
+    });
+   
+
+    
 </script>

@@ -25,7 +25,7 @@
                     <div class="left_content main_cont">   
                         <div class="sub_menu">
                             <ul>
-                                <li><a href="<?php echo URL::base(); ?>backend/inicio">Tabla compuesta</a></li>
+                                <li><a href="<?php echo URL::base(); ?>backend/">Proveedores</a></li>
                                 <li><a href="#">Menu vertial con css</a></li>
                                 <li><a href="#">Menu vertial con css</a></li>
                                 <li><a href="#">Menu vertial con css</a></li>

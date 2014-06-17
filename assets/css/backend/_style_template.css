@@ -174,7 +174,7 @@ table caption {
     font-style: italic;
     margin-bottom: 8px;
 }
-table tr:last-child {background:#283A59; color:#FFF}
+table tr:last-child {background:#283A59; color:#000}
 th {
     text-align: left;
 }
