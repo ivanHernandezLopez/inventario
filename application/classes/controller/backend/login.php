@@ -60,9 +60,22 @@ class Controller_Backend_Login extends Controller_Core_Backend {
 				$error   = "warning";				
 				if($this->catusuarios->FindBy("dsc_correo",$post["usuario"])->id_catusuario)
 				{
+					$password = $this->create_password();
+					$data = array(
+						"usuario"		=> $post["usuario"],
+						"contrasena"	=> $password,
+					);
+					$email = Email::factory("Solicitud de recuperación de contraseña")
+							->message($this->parse_html($data,"recovery"), 'text/html')
+						    ->to($post["usuario"])
+						    ->from("recovery_pass@sistema.com");
 
-					$mensaje = "Su nueva contraseña fue enviada al correo electronico: ".$post["usuario"];
-					$error = "success";
+				    if($email->send()){
+				    	$this->catusuarios->new_password($post["usuario"],$this->a1->hash($password));
+				    	$mensaje = "Su nueva contraseña fue enviada al correo electronico: ".$post["usuario"];
+						$error = "success";
+				    }
+					
 				}			
 			}
 			$response = array("mensaje"=>$mensaje,"error"=>$error);
@@ -93,4 +106,40 @@ class Controller_Backend_Login extends Controller_Core_Backend {
 				->rule("usuario","not_empty")
 				->rule("token","not_empty");
 	}
+
+	public function create_password()
+	{
+		//Se define una cadena de caractares. Te recomiendo que uses esta.
+		$cadena = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890";
+		//Obtenemos la longitud de la cadena de caracteres
+		$longitudCadena=strlen($cadena);
+		 
+		//Se define la variable que va a contener la contraseña
+		$pass = "";
+		//Se define la longitud de la contraseña, en mi caso 10, pero puedes poner la longitud que quieras
+		$longitudPass=10;
+		 
+		//Creamos la contraseña
+		for($i=1 ; $i<=$longitudPass ; $i++){
+			//Definimos numero aleatorio entre 0 y la longitud de la cadena de caracteres-1
+			$pos=rand(0,$longitudCadena-1);
+			 
+			//Vamos formando la contraseña en cada iteraccion del bucle, añadiendo a la cadena $pass la letra correspondiente a la posicion $pos en la cadena de caracteres definida.
+			$pass .= substr($cadena,$pos,1);
+		}
+		return $pass;
+	}
+	public function parse_html($data,$vista)
+    {
+    	$template =(string) View::factory("backend/mailings/".$vista);
+        if ($template != NULL && count($data)>0)
+        {
+            foreach ($data as $key=>$value)
+            {
+              $key = '{'.$key.'}';
+              $template= str_replace($key,$value,$template);
+            }
+        }
+        return $template;
+    }
 }

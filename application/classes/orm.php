@@ -8,6 +8,25 @@ class ORM extends Kohana_ORM {
 	 */
 	protected $_table_names_plural = FALSE;
 
+
+	public function set($data = NULL,$value = NULL)
+	{
+		if (is_array($data))
+		{
+			foreach ($data as $key=> $value)
+			{
+				parent::set($key, $value);
+			}
+		}
+		else
+		{
+			parent::set($data, $value);
+		}
+
+		return $this;
+	}
+
+	
 	public function selectDB($sql)
 	{
 		return DB::query(Database::SELECT,$sql)->as_object()->execute();
