@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col-lg-12">
-        <h1 class="page-header">Catalogo de proveedores</h1>
+        <h3 class="page-header">Catalogo de proveedores</h3>
         <p>
             <a href="<?php echo URL::base(); ?>backend/proveedores/agregar">
                 <button class="btn btn-primary btn-lg" type="button">Agregar</button>
@@ -13,7 +13,6 @@
         <div class="panel panel-default">
             <div class="panel-heading">
                 Catalogo de proveedores 
-
             </div>
             <!-- /.panel-heading -->
             <div class="panel-body">

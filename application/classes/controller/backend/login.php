@@ -21,7 +21,8 @@ class Controller_Backend_Login extends Controller_Core_Backend {
 
 	public function action_index()
 	{
-		
+		if($this->a1->logged_in())
+			$this->request->redirect(URL::base()."backend");
 		$mensaje = ""; $error="";
 		//echo $this->a1->hash("admin");
 		if($this->request->method()==Request::POST)
