@@ -81,7 +81,7 @@ if (isset($_SERVER['KOHANA_ENV']))
  * - boolean  caching     enable or disable internal caching                 FALSE
  * - boolean  expose      set the X-Powered-By header                        FALSE
  */
-Kohana::$environment = ($_SERVER['SERVER_NAME'] == "localhost" OR  $_SERVER['SERVER_NAME'] == "dev.helpersphp.net")
+Kohana::$environment = ($_SERVER['SERVER_NAME'] == "localhost")
 						? Kohana::DEVELOPMENT
 						: Kohana::PRODUCTION ;
 
