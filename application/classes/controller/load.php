@@ -4,8 +4,8 @@ class Controller_Load extends Controller {
 
 	public function action_view()
 	{
-		$ruta = $this->request->param("id");
-		$new_ruta  = str_replace("_","/",$ruta);
-		$this->response->body(View::factory("backend/mailings/recovery"));		
+		$parametro = $this->request->param("id");
+		$view_ruta  = str_replace("_","/",$parametro);
+		$this->response->body(View::factory($view_ruta));		
 	}
 }

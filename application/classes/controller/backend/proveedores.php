@@ -10,9 +10,9 @@ class Controller_Backend_Proveedores extends Controller_Core_Backend implements 
 
 	}
 	public function action_index()
-	{
-		Assets::script(array("dataTables.js","backend/script_tables.js"));
-		Assets::style(array("dataTables.css"));
+	{		
+		Assets::style(array("plugins/dataTables/dataTables.bootstrap.css"));
+		Assets::script(array("plugins/dataTables/jquery.dataTables.js","plugins/dataTables/dataTables.bootstrap.js","backend/script_tables.js"));
 		$this->body= View::factory("backend/proveedores/view_proveedores")->set(array(
 				"proveedores" => $this->catproveedores->select_registros_activos(),
 			));
