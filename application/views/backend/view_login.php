@@ -11,7 +11,11 @@
     </head>
     <body>
         	<form id="login" action="<?php echo URL::base(); ?>backend/login" method="POST">
-                <h1>BIENVENIDO</h1>
+                
+                <h1>
+                    <img width="247" height="51" src="<?php echo URL::base(); ?>assets/img/logo.png" >
+                    <img width="375" height="35" src="<?php echo URL::base(); ?>assets/img/lineas.png">
+                </h1>
                 <fieldset id="inputs">
                     <input id="username" type="text" placeholder="Correo" autofocus  name="usuario" >   
                     <input id="password" type="password" placeholder="Contraseña"  name="contrasena">

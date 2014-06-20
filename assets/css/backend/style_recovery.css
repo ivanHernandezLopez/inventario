@@ -50,7 +50,7 @@ body {
 }
 
 .password-recovery h1 {
-    color: #3151A2;
+    color: #009900;
 }
 h1, .h1 {
     color: #C11D7F;
@@ -241,7 +241,7 @@ button.btn, button.button-go, .mod-new button.button-new, input.btn[type="submit
     -moz-border-left-colors: none;
     -moz-border-right-colors: none;
     -moz-border-top-colors: none;
-    background-color: #3151A2;
+    background-color: #009900;
     border-color: -moz-use-text-color -moz-use-text-color #B3B3B3;
     border-image: none;
     border-style: none;
@@ -278,12 +278,12 @@ button, input, select, textarea {
     vertical-align: middle;
 }
 label.error{
-    background-color: #BC1010;
+    background-color: #FC0001;
     border-radius: 4px;
     color: #FFFFFF;
     font-weight: bold;
     margin-left: -153px;
     margin-top: 7px;
     padding: 6px 12px;
-    position: fixed;
+    position: absolute;
 }
