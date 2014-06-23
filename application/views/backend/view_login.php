@@ -52,6 +52,7 @@
 
             }
         });
+        
         $("#login").validate({
             rules: {
                 usuario: {

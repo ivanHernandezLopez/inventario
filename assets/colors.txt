@@ -1,0 +1,5 @@
+Colores logo---------
+
+Verde Fuerte: #007400
+Verde Claro : #009900
+Rojo		: #FC0001

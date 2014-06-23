@@ -2,6 +2,10 @@
 
 class Controller_Load extends Controller {
 
+	public function action_redirect()
+	{
+		$this->request->redirect(URL::base()."backend/");
+	}
 	public function action_view()
 	{
 		$parametro = $this->request->param("id");

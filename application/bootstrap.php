@@ -135,6 +135,6 @@ Route::set('directory', '<directory>(/<controller>(/<action>(/<id>)))',array(
 
 Route::set('default', '(<controller>(/<action>(/<id>)))')
 	->defaults(array(
-		'controller' => 'inicio',
-		'action'     => 'index',
+		'controller' => 'load',
+		'action'     => 'redirect',
 	));
