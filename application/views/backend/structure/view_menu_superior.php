@@ -4,7 +4,7 @@
 <!-- /.navbar-header -->
  <ul class="nav navbar-top-links navbar-right">
     <li class="dropdown">
-        <a class="dropdown-toggle" data-toggle="dropdown" href="#" style="color:#fff !important;">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="javascript:void(0);" style="color:#fff !important;">
             <i ><?php echo strtoupper($usuario->dsc_nombre." ".$usuario->dsc_apellido_pat." ".$usuario->dsc_apellido_mat." "); ?></i>  
             <i class="fa fa-caret-down"></i>
         </a>

@@ -31,11 +31,11 @@
                             </div>
                             <div class="form-group">
                                 <label>Contraseña</label>
-                                <input class="form-control" name="dsc_contrasena" id="password">
+                                <input type="password"  value="" class="form-control" name="dsc_contrasena" id="password">
                             </div>
                             <div class="form-group">
                                 <label>Repetir contraseña</label>
-                                <input class="form-control" name="dsc_contrasena_repit">
+                                <input type="password"  class="form-control" name="dsc_contrasena_repit">
                             </div>
                             <button type="submit" class="btn btn-default">Guardar</button>
                             <button type="reset" class="btn btn-default">Cancelar</button>
