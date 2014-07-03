@@ -7,31 +7,31 @@
     <div class="col-lg-12">
         <div class="panel panel-default">
             <div class="panel-heading ">
-                Para editar su perfil proporcione los datos requeridos y guarde sus cambios
+                Para poder agregar un nuevo usuario con permisos al sistema es necesario proporcionar los datos requeridos
             </div>
             <div class="panel-body">
                 <div class="row">
                     <div class="col-lg-8">
-                        <form role="form" id="perfil" action="<?php echo URL::base(); ?>backend/usuarios/perfil" method="POST">
+                        <form role="form" id="perfil" action="<?php echo URL::base(); ?>backend/usuarios/agregar" method="POST">
                             <div class="form-group">
                                 <label>Codigo <span class="required">*</span></label>
-                                <input class="form-control" name="cod_usuario" value="<?php echo $usuario->cod_usuario; ?>" readonly>
+                                <input class="form-control" name="cod_usuario" >
                             </div>
                             <div class="form-group">
                                 <label>Nombre <span class="required">*</span></label>
-                                <input class="form-control" name="dsc_nombre" value="<?php echo $usuario->dsc_nombre; ?>">
+                                <input class="form-control" name="dsc_nombre" >
                             </div>
                             <div class="form-group">
                                 <label>Apellido Paterno</label>
-                                <input class="form-control" name="dsc_apellido_pat" value="<?php echo $usuario->dsc_apellido_pat; ?>">
+                                <input class="form-control" name="dsc_apellido_pat" >
                             </div>
                             <div class="form-group">
                                 <label>Apellido Materno</label>
-                                <input class="form-control" name="dsc_apellido_mat" value="<?php echo $usuario->dsc_apellido_mat; ?>">
+                                <input class="form-control" name="dsc_apellido_mat" >
                             </div>
                             <div class="form-group">
                                 <label>Correo <span class="required">*</span></label>
-                                <input class="form-control" name="dsc_correo" value="<?php echo $usuario->dsc_correo; ?>">
+                                <input class="form-control" name="dsc_correo" >
                             </div>
                             <div class="form-group">
                                 <label>Contraseña</label>
@@ -59,16 +59,21 @@
     $(document).ready(function(){
          $("#perfil").validate({
             rules: {
+                cod_usuario:'required',
                 dsc_nombre: 'required',
                 dsc_correo: {
                     required:true,
                     email:true,
-                },               
+                }, 
+                dsc_contrasena:'required',              
                 dsc_contrasena_repit:{
                     equalTo:'#password',
                 }          
             },
             messages:{
+                cod_usuario:{
+                    required:'Campo requerido',
+                },
                 dsc_nombre:{
                     required:'Campo requerido',
                 },

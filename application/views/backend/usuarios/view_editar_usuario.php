@@ -7,14 +7,14 @@
     <div class="col-lg-12">
         <div class="panel panel-default">
             <div class="panel-heading ">
-                Para editar su perfil proporcione los datos requeridos y guarde sus cambios
+                Para poder agregar un nuevo usuario con permisos al sistema es necesario proporcionar los datos requeridos
             </div>
             <div class="panel-body">
                 <div class="row">
                     <div class="col-lg-8">
-                        <form role="form" id="perfil" action="<?php echo URL::base(); ?>backend/usuarios/perfil" method="POST">
+                        <form role="form" id="perfil" action="<?php echo URL::base(); ?>backend/usuarios/editar/<?php echo $usuario->id_catusuario; ?>" method="POST">
                             <div class="form-group">
-                                <label>Codigo <span class="required">*</span></label>
+                                <label>Codigo </label>
                                 <input class="form-control" name="cod_usuario" value="<?php echo $usuario->cod_usuario; ?>" readonly>
                             </div>
                             <div class="form-group">

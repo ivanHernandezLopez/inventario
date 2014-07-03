@@ -34,7 +34,9 @@ class Controller_Core_Backend extends Controller_Core_System {
 			));
 		$this->template = View::factory("backend/structure/view_template")->set(array(
 				"menu_superior"	=> View::factory("backend/structure/view_menu_superior"),
-				"menu_lateral"	=> View::factory("backend/structure/view_menu_lateral"),
+				"menu_lateral"	=> View::factory("backend/structure/view_menu_lateral")->set(array(
+						"controller"	=> $this->request->controller(),
+					)),
 			));		
 	}
 

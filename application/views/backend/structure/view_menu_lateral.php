@@ -5,10 +5,15 @@
                 <a href="javascript:void(0);" style="background:#F5F5F5 !important;">
                      <img src="<?php echo URL::base(); ?>assets/img/logo.png" width="50%" >
                 </a>
-            </li>                    
+            </li>   
             <li>
-                <a href="<?php echo URL::base(); ?>backend/proveedores" style="color:#fff !important;">
-                    <i class="fa fa-dashboard fa-fw"></i>Proveedores
+                <a class="<?php if($controller=='usuarios') echo 'actually'; ?>" href="<?php echo URL::base(); ?>backend/usuarios" style="color:#fff !important;">
+                    <span class="glyphicon glyphicon-user"></span></i>Usuarios
+                </a>
+            </li>                 
+            <li>
+                <a class="<?php if($controller=='proveedores') echo 'actually'; ?>" href="<?php echo URL::base(); ?>backend/proveedores" style="color:#fff !important;">
+                    <span class="glyphicon glyphicon-lock"></span></i>Proveedores
                 </a>
             </li>
             <li>

@@ -9,6 +9,9 @@
     <link href="<?php echo URL::base(); ?>assets/font-awesome/css/font-awesome.css" rel="stylesheet">
     <?php echo Assets::Styles(); ?>
     <?php echo Assets::Scripts(); ?>
+    <script type="text/javascript">
+        URLSITE = '<?php echo URL::base(); ?>';
+    </script>
 </head>
 
 <body>

@@ -129,7 +129,7 @@ Kohana::modules(array(
 Route::set('directory', '<directory>(/<controller>(/<action>(/<id>)))',array(
 		'directory' => 'backend'
 	)) -> defaults(array(
-		'controller' => 'proveedores',
+		'controller' => 'usuarios',
 		'action'     => 'index'
 	));
 

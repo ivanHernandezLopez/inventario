@@ -57,14 +57,12 @@
             rules: {
                 usuario: {
                     required:true,
-                    email:true,
                 },
                 contrasena: 'required',          
             },
             messages:{
                 usuario:{
                     required:'Campo requerido.',
-                    email:'Correo no valido.'
                 },
                 contrasena:{
                     required:'Campo requerido.',

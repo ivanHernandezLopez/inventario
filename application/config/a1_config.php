@@ -12,7 +12,7 @@ return array(
 	),
 
 	'columns'   => array(
-		'username'    => 'dsc_correo',
+		'username'    => 'cod_usuario',
 		'password'    => 'dsc_contrasena',
 		//'token'       => 'token',
 		//'last_login'      => 'last_login',      // (optional)
