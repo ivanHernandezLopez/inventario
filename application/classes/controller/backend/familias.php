@@ -1,99 +1,87 @@
 <?php defined('SYSPATH') or die('No direct script access.');
 
-class Controller_Backend_Materiales extends Controller_Core_Backend implements Standars_Backend{
+class Controller_Backend_Familias extends Controller_Core_Backend implements Standars_Backend{
 
-	protected $catmateriales,$catunidades,$catproveedores,$catfamilias;
-
+	
+	protected $catfamilias;
 	public function before()
 	{
 		parent::before();
-		$this->catunidades = new Model_Catunidades();
-		$this->catmateriales = new Model_Catmateriales();
-		$this->catproveedores = new Model_Catproveedores();
 		$this->catfamilias = new Model_Catfamilias();
 	}
-
+	
 	public function action_index()
 	{
 		Assets::style(array("plugins/dataTables/dataTables.bootstrap.css","plugins/jconfirm/alertify.core.css","plugins/jconfirm/alertify.default.css"));
 		Assets::script(array("plugins/dataTables/jquery.dataTables.js","plugins/dataTables/dataTables.bootstrap.js","backend/script_tables.js","plugins/jconfirm/alertify.js"));
-		$this->body= View::factory("backend/materiales/view_materiales")->set(array(
-				"materiales" => $this->catmateriales->select_registros_activos(),
+		
+		$this->body = View::factory("backend/familias/view_familias")->set(array(
+				"familias"	=> $this->catfamilias->select_registros_activos(),
 			));
 	}
 
 	public function action_agregar()
 	{
 		Assets::script(array("jquery-validate.js"));
-		$msg = ""; $error = "";
+		$msg = "";  $error = "";
+		$post = $this->validate_post();
 		if($this->request->method()==Request::POST)
 		{
 			$msg = "Proporcione los datos requeridos.";
 			$error   = "info";
-			$post = $this->validate_post();
 			if($post->check())
 			{
 				$msg = "Un error ocurrio durante la acción, intentelo mas tarde.";
 				$error   = "warning";
-				if($this->catmateriales->agregar_editar($post,0))
+				if($this->catfamilias->agregar_editar($post,0))
 				{
 					$msg = "Registro insertado correctamente"; $error="success";
 				}
 			}
 		}
-		$this->body = View::factory("backend/materiales/view_agregar_material")->set(array(
-				"unidades"	=> $this->catunidades->select_registros_activos(),
-				"proveedores"	=> $this->catproveedores->select_registros_activos(),
-				"familias"	=> $this->catfamilias->select_registros_activos(),
-				"error"	=> $error,
+		$this->body = View::factory("backend/familias/view_agregar_familia")->set(array(
 				"msg"	=> $msg,
+				"error"	=> $error,
 			));
 	}
 
 	public function action_editar()
 	{
 		Assets::script(array("jquery-validate.js"));
-		$msg = ""; $error = "";
+		$msg = "";  $error = "";
 		$id = $this->request->param("id");
+		$post = $this->validate_post();
 		if($this->request->method()==Request::POST)
 		{
 			$msg = "Proporcione los datos requeridos.";
 			$error   = "info";
-			$post = $this->validate_post();
 			if($post->check())
 			{
 				$msg = "Un error ocurrio durante la acción, intentelo mas tarde.";
 				$error   = "warning";
-				if($this->catmateriales->agregar_editar($post,$id))
+				if($this->catfamilias->agregar_editar($post,$id))
 				{
 					$msg = "Registro actualizado correctamente"; $error="success";
 				}
 			}
 		}
-		$this->body = View::factory("backend/materiales/view_editar_material")->set(array(
-				"material"	=> $this->catmateriales->FindBy("id_catmaterial",$id),
-				"unidades"	=> $this->catunidades->select_registros_activos(),
-				"proveedores"	=> $this->catproveedores->select_registros_activos(),
-				"familias"	=> $this->catfamilias->select_registros_activos(),
-				"error"	=> $error,
+		$this->body = View::factory("backend/familias/view_editar_familia")->set(array(
+				"familia"	=> $this->catfamilias->FindBy("id_catfamilia",$id),
 				"msg"	=> $msg,
+				"error"	=> $error,
 			));
 	}
 
 	public function action_eliminar()
 	{
 		$id = $this->request->param("id");
-		$this->catmateriales->UpdateStatus("id_catmaterial",$id);
+		$this->catfamilias->UpdateStatus("id_catfamilia",$id);
 	}
 
 	public function validate_post()
 	{
 		return Validation::factory($_POST)
 			->rule("cod_sap","not_empty")
-			->rule("dsc_nombre","not_empty")
-			->rule("id_catfamilia","not_empty")
-			->rule("id_catunidad","not_empty")
-			->rule("id_catproveedor","not_empty");
-
+			->rule("dsc_nombre","not_empty");
 	}
 }

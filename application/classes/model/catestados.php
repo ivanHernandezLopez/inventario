@@ -2,4 +2,5 @@
 
 class Model_Catestados extends ORM {
 
+	protected $_primary_key = "id_catestado";
 }

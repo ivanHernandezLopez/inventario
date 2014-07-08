@@ -47,9 +47,10 @@ class Controller_Backend_Proveedores extends Controller_Core_Backend implements 
 
 	public function action_editar()
 	{
-		$id = $this->request->param("id");
+		
 		Assets::script(array("jquery-validate.js"));
 		$msg = ""; $error = "";
+		$id = $this->request->param("id");
 		if($this->request->method()==Request::POST)
 		{
 			$post = $this->valida_post();
@@ -60,7 +61,7 @@ class Controller_Backend_Proveedores extends Controller_Core_Backend implements 
 				$error   = "warning";
 				if($this->catproveedores->insert_registro($post,$id))
 				{
-					$msg = "Registro editado correctamente"; $error="success";
+					$msg = "Registro actualizado correctamente"; $error="success";
 				}
 			}
 		}
@@ -85,7 +86,20 @@ class Controller_Backend_Proveedores extends Controller_Core_Backend implements 
 	//Metodos internos para validacion KOHANA
 	public function valida_post()
 	{
-		return Validation::factory($_POST);
+		return Validation::factory($_POST)
+		->rule("cod_sap","not_empty")
+		->rule("dsc_nombre","not_empty")
+		->rule("id_catestado","not_empty")
+		->rule("id_detmunicipio","not_empty")
+		->rule("dsc_colonia","not_empty")
+		->rule("dsc_calle","not_empty")
+		->rule("dsc_numero","not_empty")
+		->rule("dsc_codigo_postal","not_empty")
+		->rule("dsc_correo","email")
+		->rule("tel_oficina","not_empty")
+		->rule("tel_celular","not_empty")
+		->rule("dsc_comercializadora","not_empty");
+		 
 	}
 
 	//Consulta los municipios del estado seleccionado

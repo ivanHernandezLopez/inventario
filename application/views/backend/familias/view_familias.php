@@ -1,8 +1,8 @@
 <div class="row">
     <div class="col-lg-12">
-        <h3 class="page-header">Catalogo de proveedores</h3>
+        <h3 class="page-header">Catalogo de familias</h3>
         <p>
-            <a href="<?php echo URL::base(); ?>backend/proveedores/agregar">
+            <a href="<?php echo URL::base(); ?>backend/familias/agregar">
                 <button class="btn btn-primary btn-lg" type="button">Agregar</button>
             </a>
         </p>
@@ -12,7 +12,7 @@
     <div class="col-lg-12">
         <div class="panel panel-default">
             <div class="panel-heading">
-                Catalogo de proveedores 
+                Catalogo de familias 
             </div>
             <!-- /.panel-heading -->
             <div class="panel-body">
@@ -20,34 +20,31 @@
                     <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                         <thead>
                             <tr>
-                                <th colspan="5">Datos del proveedor</th>
+                                <th colspan="3">Datos del usuario</th>
                                 <th colspan="2" width="60px">Acciones</th>
                             </tr>
                             <tr>
+                                <th>Codigo</th>
                                 <th>Nombre</th>
-                                <th>Estado</th>
-                                <th>Municipio</th>
-                                <th>Colonia</th>
-                                <th>Correo</th> 
+                                <th>Descripción</th>
+                               
                                 <th width="30px">Editar</th>
                                 <th width="30px">Eliminar</th>                              
                             </tr>
                         </thead>
                         <tbody>
-                            <?php foreach($proveedores as $proveedor): ?>
+                            <?php foreach($familias as $familia): ?>
                             <tr>
-                                <td><?php echo $proveedor->dsc_nombre." ".$proveedor->dsc_apellido_pat." ".$proveedor->dsc_apellido_mat; ?></td>
-                                <td><?php echo $proveedor->id_catestado; ?></td>
-                                <td><?php echo $proveedor->id_detmunicipio; ?></td>
-                                <td><?php echo $proveedor->dsc_colonia; ?></td>
-                                <td><?php echo $proveedor->dsc_correo; ?></td>
+                                <td><?php echo $familia->cod_sap; ?></td>
+                                <td><?php echo $familia->dsc_nombre; ?></td>
+                                <td><?php echo $familia->dsc_descripcion; ?></td>
                                 <td>
-                                    <a href="<?php echo URL::base(); ?>backend/proveedores/editar/<?php echo $proveedor->id_catproveedor; ?>" title="Editar usuario">
+                                    <a href="<?php echo URL::base(); ?>backend/familias/editar/<?php echo $familia->id_catfamilia; ?>" title="Editar usuario">
                                         <span class="glyphicon glyphicon-pencil"></span>
                                     </a>
                                 </td>
                                 <td>                                   
-                                    <a href="javascript:void(0);" id="<?php echo $proveedor->id_catproveedor; ?>" class="delete" title="Eliminar usuario">
+                                    <a href="javascript:void(0);" id="<?php echo $familia->id_catfamilia; ?>" class="delete" title="Eliminar usuario">
                                         <span class="glyphicon glyphicon-remove"></span>
                                     </a>
                                 </td>
@@ -68,11 +65,11 @@
     $(document).ready(function(){
         $('.delete').click(function(){
             var id = $(this).attr('id');         
-            alertify.confirm("Desea eliminar a este proveedor", function (e) {
+            alertify.confirm("Desea eliminar a esta familia", function (e) {
                 if (e) {
-                    $.post(URLSITE+'backend/proveedores/eliminar/'+id,{},function(data){
-                        alertify.alert("Proveedor eliminado correctamente",function(){
-                        window.location = URLSITE+'backend/proveedores';                    
+                    $.post(URLSITE+'backend/familias/eliminar/'+id,{},function(data){
+                        alertify.alert("Familia eliminado correctamente",function(){
+                        window.location = URLSITE+'backend/familias';                    
                     })
                     
                     });

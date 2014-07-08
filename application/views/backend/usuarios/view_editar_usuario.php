@@ -14,7 +14,7 @@
                     <div class="col-lg-8">
                         <form role="form" id="perfil" action="<?php echo URL::base(); ?>backend/usuarios/editar/<?php echo $usuario->id_catusuario; ?>" method="POST">
                             <div class="form-group">
-                                <label>Codigo </label>
+                                <label>Codigo <span class="required">*</span></label>
                                 <input class="form-control" name="cod_usuario" value="<?php echo $usuario->cod_usuario; ?>" readonly>
                             </div>
                             <div class="form-group">

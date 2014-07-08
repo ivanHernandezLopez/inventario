@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jul 08, 2014 at 04:34 AM
+-- Generation Time: Jul 08, 2014 at 06:46 PM
 -- Server version: 5.5.37-0ubuntu0.13.10.1
 -- PHP Version: 5.5.3-1ubuntu2.3
 
@@ -78,19 +78,42 @@ INSERT INTO `catestados` (`id_catestado`, `dsc_nombre`, `fec_alta`, `fec_modif`,
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `catfamilias`
+--
+
+CREATE TABLE IF NOT EXISTS `catfamilias` (
+  `id_catfamilia` int(11) NOT NULL AUTO_INCREMENT,
+  `cod_sap` int(11) DEFAULT NULL,
+  `dsc_nombre` varchar(250) DEFAULT NULL,
+  `dsc_descripcion` text,
+  `fec_alta` date DEFAULT NULL,
+  `fec_modif` date DEFAULT NULL,
+  `fec_baja` date DEFAULT NULL,
+  `dsc_baja` text,
+  `sta_baja` char(1) DEFAULT NULL,
+  PRIMARY KEY (`id_catfamilia`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `catmateriales`
 --
 
 CREATE TABLE IF NOT EXISTS `catmateriales` (
-  `id_producto` int(11) NOT NULL AUTO_INCREMENT,
+  `id_catmaterial` int(11) NOT NULL AUTO_INCREMENT,
   `cod_producto` int(11) NOT NULL,
-  `id_familia` int(11) NOT NULL,
   `dsc_nombre` varchar(45) DEFAULT NULL,
-  `dsc_descripcion` text NOT NULL,
+  `dsc_descripcion` text,
+  `id_catfamilia` int(11) DEFAULT NULL,
+  `id_catunidad` int(11) DEFAULT NULL,
+  `id_catproveedor` int(11) DEFAULT NULL,
   `fec_alta` date DEFAULT NULL,
+  `fec_modif` date DEFAULT NULL,
   `fec_baja` date DEFAULT NULL,
+  `dsc_baja` text,
   `sta_baja` char(1) DEFAULT NULL,
-  PRIMARY KEY (`id_producto`)
+  PRIMARY KEY (`id_catmaterial`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -121,20 +144,7 @@ CREATE TABLE IF NOT EXISTS `catproveedores` (
   `dsc_baja` text,
   `sta_baja` char(1) DEFAULT NULL,
   PRIMARY KEY (`id_catproveedor`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
-
---
--- Dumping data for table `catproveedores`
---
-
-INSERT INTO `catproveedores` (`id_catproveedor`, `cod_sap`, `dsc_nombre`, `dsc_apellido_pat`, `dsc_apellido_mat`, `id_catestado`, `id_detmunicipio`, `dsc_colonia`, `dsc_calle`, `dsc_numero`, `dsc_codigo_postal`, `dsc_correo`, `tel_oficina`, `tel_celular`, `dsc_comercializadora`, `fec_alta`, `fec_modif`, `fec_baja`, `dsc_baja`, `sta_baja`) VALUES
-(1, 0, '', '', '', 0, 0, '', '', 0, 0, '', 0, 0, '', NULL, NULL, NULL, NULL, NULL),
-(2, 0, '', '', '', 0, 0, '', '', 0, 0, '', 0, 0, '', '2014-07-07', NULL, NULL, NULL, 'N'),
-(3, 0, '', '', '', 0, 0, '', '', 0, 0, '', 0, 0, '', '2014-07-07', NULL, NULL, NULL, 'N'),
-(4, 0, '', '', '', 1, 0, '', '', 0, 0, '', 0, 0, 'no', '2014-07-07', NULL, NULL, NULL, 'N'),
-(5, 0, '', '', '', 1, 0, '', '', 0, 0, '', 0, 0, 'no', '2014-07-07', NULL, NULL, NULL, 'N'),
-(6, 1234, 'nombre', 'paterno', 'materno', 1, 1, 'colonia', 'calle', 1, 12345, 'van.m285@gmail.com', 123456, 1234567, 'no', '2014-07-07', NULL, '2014-07-07', NULL, 'S'),
-(7, 1234, 'nombre', 'paterno', 'materno', 9, 266, 'colonia', 'calle', 1, 12345, 'van.m285@gmail.com', 123456, 1234567, 'si', '2014-07-07', '2014-07-07', NULL, NULL, 'N');
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -193,7 +203,7 @@ CREATE TABLE IF NOT EXISTS `catusuarios` (
 --
 
 INSERT INTO `catusuarios` (`id_catusuario`, `dsc_nombre`, `dsc_apellido_pat`, `dsc_apellido_mat`, `dsc_correo`, `cod_usuario`, `dsc_contrasena`, `fec_alta`, `fec_modif`, `fec_baja`, `dsc_baja`, `sta_baja`) VALUES
-(1, 'Ivan', 'Hernadez', 'Lopez', 'van.m285@gmail.com', 12345, '$2a$12$SgfaMukmHGVpiLMHxQO6QOKg3FFh6JmUmN2ChiiZmK14LmGFmrT3C', '2014-07-07', NULL, NULL, NULL, 'N'),
+(1, 'Ivan', 'Hernadez', 'Lopez', 'van.m285@gmail.com', 12345, '$2a$12$SgfaMukmHGVpiLMHxQO6QOKg3FFh6JmUmN2ChiiZmK14LmGFmrT3C', '2014-07-07', '2014-07-08', NULL, NULL, 'N'),
 (2, 'Adriana', 'Tellez', 'Martinez', 'aditha.130990@gmail.com', 13091990, '$2a$12$kjqzN2UDyQ2AMWBZQJ4kv..vnT5Z5LaPoNQ8lgXnKdHHXPHJ1wmSW', '2014-07-02', '0000-00-00', '0000-00-00', '', 'N');
 
 -- --------------------------------------------------------

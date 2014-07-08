@@ -2,4 +2,5 @@
 
 class Model_Detmunicipios extends ORM {
 
+	protected $_primary_key = "id_detmunicipio";
 }

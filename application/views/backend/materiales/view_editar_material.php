@@ -12,25 +12,25 @@
             <div class="panel-body">
                 <div class="row">
                     <div class="col-lg-8">
-                        <form role="form" id="material" action="<?php echo URL::base(); ?>backend/materiales/agregar" method="POST">
+                        <form role="form" id="material" action="<?php echo URL::base(); ?>backend/materiales/editar/<?php echo $material->id_catmaterial; ?>" method="POST">
                             <div class="form-group">
                                 <label>Codigo<span class="required">*</span></label>
-                                <input class="form-control" name="cod_sap" >
+                                <input class="form-control" name="cod_sap" value="<?php echo $material->cod_producto; ?>" readonly>
                             </div>
                             <div class="form-group">
                                 <label>Nombre<span class="required">*</span></label>
-                                <input class="form-control" name="dsc_nombre" >
+                                <input class="form-control" name="dsc_nombre" value="<?php echo $material->dsc_nombre; ?>">
                             </div>
                             <div class="form-group">
                                 <label>Descripción</label>
-                                <textarea class="form-control" rows="3" name="dsc_descripcion"></textarea>
+                                <textarea class="form-control" rows="3" name="dsc_descripcion"><?php echo $material->dsc_descripcion; ?></textarea>
                             </div>
                             <div class="form-group">
                                 <label>Familia<span class="required">*</span></label>
                                 <select class="form-control" name="id_catfamilia">
                                     <option value="">Seleccion una familia...</option>
                                      <?php foreach($familias as $familia): ?>
-                                        <option value="<?php echo $familia->id_catfamilia; ?>">
+                                        <option value="<?php echo $familia->id_catfamilia; ?>" <?php if($familia->id_catfamilia==$material->id_catfamilia) echo "selected"; ?>>
                                             <?php echo $familia->dsc_nombre; ?>
                                         </option>
                                     <?php endforeach; ?>
@@ -41,7 +41,7 @@
                                 <select class="form-control" name="id_catunidad">
                                     <option value="">Seleccion una unidad...</option>
                                     <?php foreach($unidades as $unidad): ?>
-                                        <option value="<?php echo $unidad->id_catunidad; ?>">
+                                        <option value="<?php echo $unidad->id_catunidad; ?>" <?php if($unidad->id_catunidad==$material->id_catunidad) echo "selected"; ?>>
                                             <?php echo $unidad->dsc_nombre; ?>
                                         </option>
                                     <?php endforeach; ?>
@@ -52,7 +52,7 @@
                                 <select class="form-control" name="id_catproveedor">
                                     <option value="">Seleccion un proveedor...</option>
                                      <?php foreach($proveedores as $proveedor): ?>
-                                        <option value="<?php echo $proveedor->id_catproveedor." ".$proveedor->dsc_apellido_pat." ".$proveedor->dsc_apellido_mat; ?>">
+                                        <option value="<?php echo $proveedor->id_catproveedor." ".$proveedor->dsc_apellido_pat." ".$proveedor->dsc_apellido_mat; ?>" <?php if($proveedor->id_catproveedor==$material->id_catproveedor) echo "selected"; ?>>
                                             <?php echo $proveedor->dsc_nombre; ?>
                                         </option>
                                     <?php endforeach; ?>

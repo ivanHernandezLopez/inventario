@@ -17,6 +17,16 @@
                 </a>
             </li>
             <li>
+                <a class="<?php if($controller=='familias') echo 'actually'; ?>" href="<?php echo URL::base(); ?>backend/familias" style="color:#fff !important;">
+                    <span class="glyphicon glyphicon-lock"></span></i>Familias
+                </a>
+            </li>
+            <li>
+                <a class="<?php if($controller=='materiales') echo 'actually'; ?>" href="<?php echo URL::base(); ?>backend/materiales" style="color:#fff !important;">
+                    <span class="glyphicon glyphicon-lock"></span></i>Materiales
+                </a>
+            </li>
+            <li>
                 <a href="#" style="color:#fff !important;"><i class="fa fa-bar-chart-o fa-fw"></i> Menu desplegable<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>

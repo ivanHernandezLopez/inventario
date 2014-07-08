@@ -642,3 +642,122 @@
 --
 #0 /var/www/inventario/index.php(109): Kohana_Request->execute()
 #1 {main}
+2014-07-07 23:40:26 --- ERROR: HTTP_Exception_404 [ 404 ]: Unable to find a route to match the URI: assets/css/plugins/images/sort_asc.png ~ SYSPATH/classes/kohana/request.php [ 1152 ]
+2014-07-07 23:40:26 --- STRACE: HTTP_Exception_404 [ 404 ]: Unable to find a route to match the URI: assets/css/plugins/images/sort_asc.png ~ SYSPATH/classes/kohana/request.php [ 1152 ]
+--
+#0 /var/www/inventario/index.php(109): Kohana_Request->execute()
+#1 {main}
+2014-07-07 23:40:26 --- ERROR: HTTP_Exception_404 [ 404 ]: Unable to find a route to match the URI: assets/css/plugins/images/sort_both.png ~ SYSPATH/classes/kohana/request.php [ 1152 ]
+2014-07-07 23:40:26 --- STRACE: HTTP_Exception_404 [ 404 ]: Unable to find a route to match the URI: assets/css/plugins/images/sort_both.png ~ SYSPATH/classes/kohana/request.php [ 1152 ]
+--
+#0 /var/www/inventario/index.php(109): Kohana_Request->execute()
+#1 {main}
+2014-07-07 23:40:27 --- ERROR: HTTP_Exception_404 [ 404 ]: Unable to find a route to match the URI: assets/css/plugins/images/sort_asc.png ~ SYSPATH/classes/kohana/request.php [ 1152 ]
+2014-07-07 23:40:27 --- ERROR: HTTP_Exception_404 [ 404 ]: Unable to find a route to match the URI: assets/css/plugins/images/sort_both.png ~ SYSPATH/classes/kohana/request.php [ 1152 ]
+2014-07-07 23:40:27 --- STRACE: HTTP_Exception_404 [ 404 ]: Unable to find a route to match the URI: assets/css/plugins/images/sort_asc.png ~ SYSPATH/classes/kohana/request.php [ 1152 ]
+--
+#0 /var/www/inventario/index.php(109): Kohana_Request->execute()
+#1 {main}
+2014-07-07 23:40:27 --- STRACE: HTTP_Exception_404 [ 404 ]: Unable to find a route to match the URI: assets/css/plugins/images/sort_both.png ~ SYSPATH/classes/kohana/request.php [ 1152 ]
+--
+#0 /var/www/inventario/index.php(109): Kohana_Request->execute()
+#1 {main}
+2014-07-07 23:40:29 --- ERROR: HTTP_Exception_404 [ 404 ]: Unable to find a route to match the URI: assets/css/plugins/images/sort_both.png ~ SYSPATH/classes/kohana/request.php [ 1152 ]
+2014-07-07 23:40:29 --- STRACE: HTTP_Exception_404 [ 404 ]: Unable to find a route to match the URI: assets/css/plugins/images/sort_both.png ~ SYSPATH/classes/kohana/request.php [ 1152 ]
+--
+#0 /var/www/inventario/index.php(109): Kohana_Request->execute()
+#1 {main}
+2014-07-07 23:40:29 --- ERROR: HTTP_Exception_404 [ 404 ]: Unable to find a route to match the URI: assets/css/plugins/images/sort_asc.png ~ SYSPATH/classes/kohana/request.php [ 1152 ]
+2014-07-07 23:40:29 --- STRACE: HTTP_Exception_404 [ 404 ]: Unable to find a route to match the URI: assets/css/plugins/images/sort_asc.png ~ SYSPATH/classes/kohana/request.php [ 1152 ]
+--
+#0 /var/www/inventario/index.php(109): Kohana_Request->execute()
+#1 {main}
+2014-07-07 23:40:34 --- ERROR: HTTP_Exception_404 [ 404 ]: Unable to find a route to match the URI: assets/css/plugins/images/sort_both.png ~ SYSPATH/classes/kohana/request.php [ 1152 ]
+2014-07-07 23:40:34 --- STRACE: HTTP_Exception_404 [ 404 ]: Unable to find a route to match the URI: assets/css/plugins/images/sort_both.png ~ SYSPATH/classes/kohana/request.php [ 1152 ]
+--
+#0 /var/www/inventario/index.php(109): Kohana_Request->execute()
+#1 {main}
+2014-07-07 23:40:34 --- ERROR: HTTP_Exception_404 [ 404 ]: Unable to find a route to match the URI: assets/css/plugins/images/sort_asc.png ~ SYSPATH/classes/kohana/request.php [ 1152 ]
+2014-07-07 23:40:34 --- STRACE: HTTP_Exception_404 [ 404 ]: Unable to find a route to match the URI: assets/css/plugins/images/sort_asc.png ~ SYSPATH/classes/kohana/request.php [ 1152 ]
+--
+#0 /var/www/inventario/index.php(109): Kohana_Request->execute()
+#1 {main}
+2014-07-07 23:41:44 --- ERROR: HTTP_Exception_404 [ 404 ]: Unable to find a route to match the URI: assets/css/plugins/images/sort_both.png ~ SYSPATH/classes/kohana/request.php [ 1152 ]
+2014-07-07 23:41:44 --- STRACE: HTTP_Exception_404 [ 404 ]: Unable to find a route to match the URI: assets/css/plugins/images/sort_both.png ~ SYSPATH/classes/kohana/request.php [ 1152 ]
+--
+#0 /var/www/inventario/index.php(109): Kohana_Request->execute()
+#1 {main}
+2014-07-07 23:41:44 --- ERROR: HTTP_Exception_404 [ 404 ]: Unable to find a route to match the URI: assets/css/plugins/images/sort_asc.png ~ SYSPATH/classes/kohana/request.php [ 1152 ]
+2014-07-07 23:41:44 --- STRACE: HTTP_Exception_404 [ 404 ]: Unable to find a route to match the URI: assets/css/plugins/images/sort_asc.png ~ SYSPATH/classes/kohana/request.php [ 1152 ]
+--
+#0 /var/www/inventario/index.php(109): Kohana_Request->execute()
+#1 {main}
+2014-07-07 23:41:52 --- ERROR: HTTP_Exception_404 [ 404 ]: Unable to find a route to match the URI: assets/css/plugins/images/sort_both.png ~ SYSPATH/classes/kohana/request.php [ 1152 ]
+2014-07-07 23:41:52 --- STRACE: HTTP_Exception_404 [ 404 ]: Unable to find a route to match the URI: assets/css/plugins/images/sort_both.png ~ SYSPATH/classes/kohana/request.php [ 1152 ]
+--
+#0 /var/www/inventario/index.php(109): Kohana_Request->execute()
+#1 {main}
+2014-07-07 23:41:52 --- ERROR: HTTP_Exception_404 [ 404 ]: Unable to find a route to match the URI: assets/css/plugins/images/sort_asc.png ~ SYSPATH/classes/kohana/request.php [ 1152 ]
+2014-07-07 23:41:52 --- STRACE: HTTP_Exception_404 [ 404 ]: Unable to find a route to match the URI: assets/css/plugins/images/sort_asc.png ~ SYSPATH/classes/kohana/request.php [ 1152 ]
+--
+#0 /var/www/inventario/index.php(109): Kohana_Request->execute()
+#1 {main}
+2014-07-07 23:42:47 --- ERROR: HTTP_Exception_404 [ 404 ]: The requested URL backend/familias was not found on this server. ~ SYSPATH/classes/kohana/request/client/internal.php [ 87 ]
+2014-07-07 23:42:47 --- STRACE: HTTP_Exception_404 [ 404 ]: The requested URL backend/familias was not found on this server. ~ SYSPATH/classes/kohana/request/client/internal.php [ 87 ]
+--
+#0 /var/www/inventario/system/classes/kohana/request/client.php(64): Kohana_Request_Client_Internal->execute_request(Object(Request))
+#1 /var/www/inventario/system/classes/kohana/request.php(1164): Kohana_Request_Client->execute(Object(Request))
+#2 /var/www/inventario/index.php(109): Kohana_Request->execute()
+#3 {main}
+2014-07-07 23:46:27 --- ERROR: ErrorException [ 4 ]: syntax error, unexpected '=' ~ APPPATH/classes/controller/backend/familias.php [ 14 ]
+2014-07-07 23:46:27 --- STRACE: ErrorException [ 4 ]: syntax error, unexpected '=' ~ APPPATH/classes/controller/backend/familias.php [ 14 ]
+--
+#0 [internal function]: Kohana_Core::shutdown_handler()
+#1 {main}
+2014-07-07 23:46:44 --- ERROR: ErrorException [ 8 ]: Undefined variable: unidades ~ APPPATH/views/backend/familias/view_agregar_familia.php [ 35 ]
+2014-07-07 23:46:44 --- STRACE: ErrorException [ 8 ]: Undefined variable: unidades ~ APPPATH/views/backend/familias/view_agregar_familia.php [ 35 ]
+--
+#0 /var/www/inventario/application/views/backend/familias/view_agregar_familia.php(35): Kohana_Core::error_handler(8, 'Undefined varia...', '/var/www/invent...', 35, Array)
+#1 /var/www/inventario/system/classes/kohana/view.php(61): include('/var/www/invent...')
+#2 /var/www/inventario/system/classes/kohana/view.php(343): Kohana_View::capture('/var/www/invent...', Array)
+#3 /var/www/inventario/system/classes/kohana/view.php(228): Kohana_View->render()
+#4 /var/www/inventario/application/views/backend/structure/view_template.php(26): Kohana_View->__toString()
+#5 /var/www/inventario/system/classes/kohana/view.php(61): include('/var/www/invent...')
+#6 /var/www/inventario/system/classes/kohana/view.php(343): Kohana_View::capture('/var/www/invent...', Array)
+#7 /var/www/inventario/system/classes/kohana/view.php(228): Kohana_View->render()
+#8 /var/www/inventario/system/classes/kohana/response.php(160): Kohana_View->__toString()
+#9 /var/www/inventario/application/classes/controller/core/system.php(54): Kohana_Response->body(Object(View))
+#10 /var/www/inventario/application/classes/controller/core/backend.php(47): Controller_Core_System->after()
+#11 [internal function]: Controller_Core_Backend->after()
+#12 /var/www/inventario/system/classes/kohana/request/client/internal.php(119): ReflectionMethod->invoke(Object(Controller_Backend_Familias))
+#13 /var/www/inventario/system/classes/kohana/request/client.php(64): Kohana_Request_Client_Internal->execute_request(Object(Request))
+#14 /var/www/inventario/system/classes/kohana/request.php(1164): Kohana_Request_Client->execute(Object(Request))
+#15 /var/www/inventario/index.php(109): Kohana_Request->execute()
+#16 {main}
+2014-07-07 23:58:38 --- ERROR: ErrorException [ 1 ]: Call to undefined method Controller_Backend_Familias::validate_post() ~ APPPATH/classes/controller/backend/familias.php [ 15 ]
+2014-07-07 23:58:38 --- STRACE: ErrorException [ 1 ]: Call to undefined method Controller_Backend_Familias::validate_post() ~ APPPATH/classes/controller/backend/familias.php [ 15 ]
+--
+#0 [internal function]: Kohana_Core::shutdown_handler()
+#1 {main}
+2014-07-07 23:58:52 --- ERROR: ErrorException [ 8 ]: Undefined property: Controller_Backend_Familias::$catfamilias ~ APPPATH/classes/controller/backend/familias.php [ 18 ]
+2014-07-07 23:58:52 --- STRACE: ErrorException [ 8 ]: Undefined property: Controller_Backend_Familias::$catfamilias ~ APPPATH/classes/controller/backend/familias.php [ 18 ]
+--
+#0 /var/www/inventario/application/classes/controller/backend/familias.php(18): Kohana_Core::error_handler(8, 'Undefined prope...', '/var/www/invent...', 18, Array)
+#1 [internal function]: Controller_Backend_Familias->action_agregar()
+#2 /var/www/inventario/system/classes/kohana/request/client/internal.php(116): ReflectionMethod->invoke(Object(Controller_Backend_Familias))
+#3 /var/www/inventario/system/classes/kohana/request/client.php(64): Kohana_Request_Client_Internal->execute_request(Object(Request))
+#4 /var/www/inventario/system/classes/kohana/request.php(1164): Kohana_Request_Client->execute(Object(Request))
+#5 /var/www/inventario/index.php(109): Kohana_Request->execute()
+#6 {main}
+2014-07-07 23:59:30 --- ERROR: ErrorException [ 8 ]: Undefined index: cod_sap ~ SYSPATH/classes/kohana/validation.php [ 102 ]
+2014-07-07 23:59:30 --- STRACE: ErrorException [ 8 ]: Undefined index: cod_sap ~ SYSPATH/classes/kohana/validation.php [ 102 ]
+--
+#0 /var/www/inventario/system/classes/kohana/validation.php(102): Kohana_Core::error_handler(8, 'Undefined index...', '/var/www/invent...', 102, Array)
+#1 /var/www/inventario/application/classes/model/catfamilias.php(10): Kohana_Validation->offsetGet('cod_sap')
+#2 /var/www/inventario/application/classes/controller/backend/familias.php(23): Model_Catfamilias->agregar_editar(Object(Validation), 0)
+#3 [internal function]: Controller_Backend_Familias->action_agregar()
+#4 /var/www/inventario/system/classes/kohana/request/client/internal.php(116): ReflectionMethod->invoke(Object(Controller_Backend_Familias))
+#5 /var/www/inventario/system/classes/kohana/request/client.php(64): Kohana_Request_Client_Internal->execute_request(Object(Request))
+#6 /var/www/inventario/system/classes/kohana/request.php(1164): Kohana_Request_Client->execute(Object(Request))
+#7 /var/www/inventario/index.php(109): Kohana_Request->execute()
+#8 {main}
