@@ -35,9 +35,10 @@ class Model_Catusuarios extends ORM {
 		$perfil->dsc_apellido_pat = $post["dsc_apellido_pat"];
 		$perfil->dsc_apellido_mat = $post["dsc_apellido_mat"];
 		$perfil->dsc_correo = $post["dsc_correo"];
+		$perfil->sta_baja = "N";
 		if($post["dsc_contrasena"]!="")
 			$perfil->dsc_contrasena = $a1->hash($post["dsc_contrasena"]);
-		if($id!=0){
+		if($id==0){
 			$perfil->fec_alta = date("Y-m-d");
 		}else{
 			$perfil->fec_modif = date("Y-m-d");
@@ -45,7 +46,7 @@ class Model_Catusuarios extends ORM {
 		return $perfil->save();		
 	}
 
-	//baja a un usuario, solo cambia el status
+	
 	public function baja_usuario($id)
 	{
 		return ORM::factory($this->table_name())->where("id_catusuario","=",$id)->find()->set(array(

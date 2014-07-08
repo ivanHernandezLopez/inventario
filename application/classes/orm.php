@@ -42,4 +42,17 @@ class ORM extends Kohana_ORM {
 		return ORM::factory($this->table_name())->where($campo,"=",$valor)->find();
 	}
 
+	public function FindByAll($campo,$valor)
+	{
+		return ORM::factory($this->table_name())->where($campo,"=",$valor)->find_all();
+	}
+
+	public function UpdateStatus($campo,$id)
+	{
+		return ORM::factory($this->table_name())->where($campo,"=",$id)->find()->set(array(
+				"sta_baja"	=> "S",
+				"fec_baja"		=> date("Y-m-d"),
+			))->save();
+	}
+
 }

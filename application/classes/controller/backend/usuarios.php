@@ -1,5 +1,5 @@
 <?php defined('SYSPATH') or die('No direct script access.');
-
+ 
 class Controller_Backend_Usuarios extends Controller_Core_Backend implements Standars_Backend{
 
 	public function before()

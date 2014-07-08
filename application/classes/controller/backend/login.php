@@ -24,7 +24,7 @@ class Controller_Backend_Login extends Controller_Core_Backend {
 		if($this->a1->logged_in())
 			$this->request->redirect(URL::base()."backend");
 		$mensaje = ""; $error="";
-		echo $this->a1->hash("admin");
+		//echo $this->a1->hash("admin");
 		if($this->request->method()==Request::POST)
 		{
 			$mensaje = "Proporcione los datos requeridos.";
@@ -37,7 +37,7 @@ class Controller_Backend_Login extends Controller_Core_Backend {
 				$remember = (!empty($post["remember"]))?TRUE:FALSE;
 				if($this->a1->login($post["usuario"],$post["contrasena"],$remember))
 				{
-					$this->request->redirect(URL::base()."backend/proveedores");
+					$this->request->redirect(URL::base()."backend/usuarios");
 				}
 			}
 		}

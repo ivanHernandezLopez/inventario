@@ -12,29 +12,29 @@
             <div class="panel-body">
                 <div class="row">
                     <div class="col-lg-8">
-                        <form role="form" id="proveedor" action="<?php echo URL::base(); ?>backend/proveedores/agregar" method="POST">
+                        <form role="form" id="proveedor" action="<?php echo URL::base(); ?>backend/proveedores/editar/<?php echo $p->id_catproveedor; ?>" method="POST">
                             <div class="form-group">
                                 <label>Codigo SAP</label>
-                                <input class="form-control" name="cod_sap" >
+                                <input class="form-control" name="cod_sap" value="<?php echo $p->cod_sap; ?>" >
                             </div>
                             <div class="form-group">
                                 <label>Nombre</label>
-                                <input class="form-control" name="dsc_nombre" >
+                                <input class="form-control" name="dsc_nombre" value="<?php echo $p->dsc_nombre; ?>">
                             </div>
                             <div class="form-group">
                                 <label>Apellido paterno</label>
-                                <input class="form-control" name="dsc_apellido_pat" >
+                                <input class="form-control" name="dsc_apellido_pat" value="<?php echo $p->dsc_apellido_pat; ?>">
                             </div>
                             <div class="form-group">
                                 <label>Apellido materno</label>
-                                <input class="form-control" name="dsc_apellido_mat" >
+                                <input class="form-control" name="dsc_apellido_mat" value="<?php echo $p->dsc_apellido_mat; ?>">
                             </div>
                             <div class="form-group">
                                 <label>Estado</label>
                                 <select class="form-control" id="estado" name="id_catestado">
                                     <option value="">Seleccione el estado</option>
                                     <?php foreach($estados as $estado): ?>
-                                        <option value="<?php echo $estado->id_catestado; ?>">
+                                        <option value="<?php echo $estado->id_catestado; ?>" <?php if($edo->id_catestado==$estado->id_catestado) echo 'selected'; ?>>
                                             <?php echo $estado->dsc_nombre; ?>
                                         </option>
                                     <?php endforeach; ?>
@@ -43,45 +43,45 @@
                             <div class="form-group">
                                 <label>Municipio</label>
                                 <select class="form-control" id="municipios" name="id_detmunicipio">
-                                    <option value="">Seleccione el municipio</option>
+                                    <option value="<?php echo $municipio->id_detmunicipio; ?>"><?php echo $municipio->dsc_nombre; ?></option>
                                 </select>
                             </div>
                             <div class="form-group">
                                 <label>Colonia</label>
-                                <input class="form-control" name="dsc_colonia" >
+                                <input class="form-control" name="dsc_colonia" value="<?php echo $p->dsc_colonia; ?>">
                             </div>
                             <div class="form-group">
                                 <label>Calle</label>
-                                <input class="form-control" name="dsc_calle" >
+                                <input class="form-control" name="dsc_calle" value="<?php echo $p->dsc_calle; ?>">
                             </div>
                             <div class="form-group">
                                 <label>Número</label>
-                                <input class="form-control" name="dsc_numero" >
+                                <input class="form-control" name="dsc_numero" value="<?php echo $p->dsc_numero; ?>">
                             </div>
                             <div class="form-group">
                                 <label>Codigo postal</label>
-                                <input class="form-control" name="dsc_codigo_postal" >
+                                <input class="form-control" name="dsc_codigo_postal" value="<?php echo $p->dsc_codigo_postal; ?>">
                             </div>
                             <div class="form-group">
                                 <label>Correo</label>
-                                <input class="form-control" name="dsc_correo" >
+                                <input class="form-control" name="dsc_correo" value="<?php echo $p->dsc_correo; ?>">
                             </div>
                             <div class="form-group">
                                 <label>Telefono Oficina</label>
-                                <input class="form-control" name="tel_oficina" >
+                                <input class="form-control" name="tel_oficina" value="<?php echo $p->tel_oficina; ?>">
                             </div>
                             <div class="form-group">
                                 <label>Telefono celular</label>
-                                <input class="form-control" name="tel_celular" >
+                                <input class="form-control" name="tel_celular" value="<?php echo $p->tel_celular; ?>">
                             </div>
                             <div class="form-group">
                                 <label>Comercializadora</label>
                                 <label class="radio-inline">
-                                <input id="optionsRadiosInline1" type="radio"  value="si" name="dsc_comercializadora">
+                                <input id="optionsRadiosInline1" type="radio"  value="si" name="dsc_comercializadora" <?php if($p->dsc_comercializadora=="si") echo 'checked'; ?>>
                                 Si
                                 </label>
                                 <label class="radio-inline">
-                                <input id="optionsRadiosInline1" type="radio" checked="true" value="no" name="dsc_comercializadora">
+                                <input id="optionsRadiosInline1" type="radio"  value="no" name="dsc_comercializadora" <?php if($p->dsc_comercializadora=="no") echo 'checked'; ?>>
                                 No
                                 </label>
                             </div>
