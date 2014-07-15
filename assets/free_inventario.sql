@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jul 08, 2014 at 06:46 PM
+-- Generation Time: Jul 15, 2014 at 05:37 PM
 -- Server version: 5.5.37-0ubuntu0.13.10.1
 -- PHP Version: 5.5.3-1ubuntu2.3
 
@@ -83,9 +83,12 @@ INSERT INTO `catestados` (`id_catestado`, `dsc_nombre`, `fec_alta`, `fec_modif`,
 
 CREATE TABLE IF NOT EXISTS `catfamilias` (
   `id_catfamilia` int(11) NOT NULL AUTO_INCREMENT,
-  `cod_sap` int(11) DEFAULT NULL,
-  `dsc_nombre` varchar(250) DEFAULT NULL,
+  `num_familia` varchar(250) DEFAULT NULL,
   `dsc_descripcion` text,
+  `nom_responsable` varchar(250) DEFAULT NULL,
+  `num_extension` varchar(100) DEFAULT NULL,
+  `dsc_region` varchar(100) DEFAULT NULL,
+  `dsc_area` varchar(100) DEFAULT NULL,
   `fec_alta` date DEFAULT NULL,
   `fec_modif` date DEFAULT NULL,
   `fec_baja` date DEFAULT NULL,
@@ -124,19 +127,15 @@ CREATE TABLE IF NOT EXISTS `catmateriales` (
 
 CREATE TABLE IF NOT EXISTS `catproveedores` (
   `id_catproveedor` int(11) NOT NULL AUTO_INCREMENT,
-  `cod_sap` int(11) NOT NULL,
-  `dsc_nombre` varchar(100) NOT NULL,
-  `dsc_apellido_pat` varchar(100) NOT NULL,
-  `dsc_apellido_mat` varchar(100) NOT NULL,
+  `num_proveedor` varchar(250) DEFAULT NULL,
+  `dsc_razon_social` varchar(250) DEFAULT NULL,
+  `rfc_empresa` varchar(250) DEFAULT NULL,
+  `dsc_domicilio` varchar(250) DEFAULT NULL,
   `id_catestado` int(11) NOT NULL,
   `id_detmunicipio` int(11) NOT NULL,
-  `dsc_colonia` varchar(250) NOT NULL,
-  `dsc_calle` varchar(150) NOT NULL,
-  `dsc_numero` int(11) NOT NULL,
-  `dsc_codigo_postal` int(11) NOT NULL,
+  `dsc_contacto` varchar(250) DEFAULT NULL,
   `dsc_correo` varchar(150) NOT NULL,
   `tel_oficina` int(11) NOT NULL,
-  `tel_celular` int(11) NOT NULL,
   `dsc_comercializadora` char(2) NOT NULL,
   `fec_alta` date DEFAULT NULL,
   `fec_modif` date DEFAULT NULL,
@@ -196,7 +195,7 @@ CREATE TABLE IF NOT EXISTS `catusuarios` (
   `dsc_baja` text,
   `sta_baja` char(1) NOT NULL,
   PRIMARY KEY (`id_catusuario`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data for table `catusuarios`
