@@ -571,3 +571,43 @@
 #7 /var/www/inventario/system/classes/kohana/request.php(1164): Kohana_Request_Client->execute(Object(Request))
 #8 /var/www/inventario/index.php(109): Kohana_Request->execute()
 #9 {main}
+2014-07-15 12:42:23 --- ERROR: Database_Exception [ 1054 ]: [1054] Unknown column 'catproveedores.dsc_nombre' in 'field list' ( SELECT 
+ 				catmateriales.id_catmaterial,
+				catmateriales.cod_producto,
+				catmateriales.dsc_nombre,
+				catfamilias.num_familia as familia,
+				catunidades.dsc_nombre as unidad,
+				CONCAT(catproveedores.dsc_nombre,' ',catproveedores.dsc_apellido_pat,' ',catproveedores.dsc_apellido_mat) as proveedor
+				FROM catmateriales	
+				INNER JOIN catfamilias ON catfamilias.id_catfamilia = catmateriales.id_catfamilia
+				INNER JOIN catunidades ON catunidades.id_catunidad = catmateriales.id_catunidad
+				INNER JOIN catproveedores ON catproveedores.id_catproveedor = catmateriales.id_catproveedor
+				WHERE catmateriales.sta_baja = 'N' ) ~ MODPATH/mysqli/classes/kohana/database/mysqli.php [ 182 ]
+2014-07-15 12:42:23 --- STRACE: Database_Exception [ 1054 ]: [1054] Unknown column 'catproveedores.dsc_nombre' in 'field list' ( SELECT 
+ 				catmateriales.id_catmaterial,
+				catmateriales.cod_producto,
+				catmateriales.dsc_nombre,
+				catfamilias.num_familia as familia,
+				catunidades.dsc_nombre as unidad,
+				CONCAT(catproveedores.dsc_nombre,' ',catproveedores.dsc_apellido_pat,' ',catproveedores.dsc_apellido_mat) as proveedor
+				FROM catmateriales	
+				INNER JOIN catfamilias ON catfamilias.id_catfamilia = catmateriales.id_catfamilia
+				INNER JOIN catunidades ON catunidades.id_catunidad = catmateriales.id_catunidad
+				INNER JOIN catproveedores ON catproveedores.id_catproveedor = catmateriales.id_catproveedor
+				WHERE catmateriales.sta_baja = 'N' ) ~ MODPATH/mysqli/classes/kohana/database/mysqli.php [ 182 ]
+--
+#0 /var/www/inventario/modules/database/classes/kohana/database/query.php(245): Kohana_Database_MySQLi->query(1, 'SELECT ? ????ca...', true, Array)
+#1 /var/www/inventario/application/classes/orm.php(32): Kohana_Database_Query->execute()
+#2 /var/www/inventario/application/classes/model/catmateriales.php(39): ORM->selectDB('SELECT ? ????ca...')
+#3 /var/www/inventario/application/classes/controller/backend/materiales.php(22): Model_Catmateriales->select_registros_activos()
+#4 [internal function]: Controller_Backend_Materiales->action_index()
+#5 /var/www/inventario/system/classes/kohana/request/client/internal.php(116): ReflectionMethod->invoke(Object(Controller_Backend_Materiales))
+#6 /var/www/inventario/system/classes/kohana/request/client.php(64): Kohana_Request_Client_Internal->execute_request(Object(Request))
+#7 /var/www/inventario/system/classes/kohana/request.php(1164): Kohana_Request_Client->execute(Object(Request))
+#8 /var/www/inventario/index.php(109): Kohana_Request->execute()
+#9 {main}
+2014-07-15 12:42:53 --- ERROR: HTTP_Exception_404 [ 404 ]: Unable to find a route to match the URI: assets/css/plugins/images/sort_both.png ~ SYSPATH/classes/kohana/request.php [ 1152 ]
+2014-07-15 12:42:53 --- STRACE: HTTP_Exception_404 [ 404 ]: Unable to find a route to match the URI: assets/css/plugins/images/sort_both.png ~ SYSPATH/classes/kohana/request.php [ 1152 ]
+--
+#0 /var/www/inventario/index.php(109): Kohana_Request->execute()
+#1 {main}
