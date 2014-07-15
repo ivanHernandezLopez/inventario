@@ -20,10 +20,11 @@
                     <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                         <thead>
                             <tr>
-                                <th colspan="5">Datos del usuario</th>
+                                <th colspan="6">Datos de los usuarios</th>
                                 <th colspan="2" width="60px">Acciones</th>
                             </tr>
                             <tr>
+                                <th>ID</th>
                                 <th>Codigo</th>
                                 <th>Nombre</th>
                                 <th>Ape. Paterno</th>
@@ -37,6 +38,7 @@
                             <?php foreach($usuarios as $usuario): ?>
 
                             <tr>
+                            <td><?php echo $usuario->id_catusuario; ?></td>
                                 <td><?php echo $usuario->cod_usuario; ?></td>
                                 <td><?php echo $usuario->dsc_nombre; ?></td>
                                 <td><?php echo $usuario->dsc_apellido_pat; ?></td>

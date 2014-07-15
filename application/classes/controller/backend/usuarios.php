@@ -4,6 +4,7 @@ class Controller_Backend_Usuarios extends Controller_Core_Backend implements Sta
 
 	public function before()
 	{
+		$this->titulo = "PANEL DE ADMINISTRACIÓN DE USUARIOS";
 		parent::before();
 		$this->catusuarios = new Model_Catusuarios();
 	}

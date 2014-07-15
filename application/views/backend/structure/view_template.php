@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PANEL DE ADMINISTRACIÓN DE INVENTARIOS</title>
+    <title>PANEL DE ADMINISTRACIÓN</title>
     <!-- Core CSS - Include with every page -->   
     <link href="<?php echo URL::base(); ?>assets/font-awesome/css/font-awesome.css" rel="stylesheet">
     <?php echo Assets::Styles(); ?>

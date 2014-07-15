@@ -6,6 +6,7 @@ class Controller_Backend_Familias extends Controller_Core_Backend implements Sta
 	protected $catfamilias;
 	public function before()
 	{
+		$this->titulo = "PANEL DE ADMINISTRACIÓN DE FAMILIAS";
 		parent::before();
 		$this->catfamilias = new Model_Catfamilias();
 	}
@@ -81,7 +82,8 @@ class Controller_Backend_Familias extends Controller_Core_Backend implements Sta
 	public function validate_post()
 	{
 		return Validation::factory($_POST)
-			->rule("cod_sap","not_empty")
-			->rule("dsc_nombre","not_empty");
+			->rule("num_familia","not_empty")
+			->rule("dsc_descripcion","not_empty")
+			->rule("nom_responsable","not_empty");
 	}
 }

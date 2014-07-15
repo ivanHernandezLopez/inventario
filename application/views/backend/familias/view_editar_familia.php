@@ -12,18 +12,30 @@
             <div class="panel-body">
                 <div class="row">
                     <div class="col-lg-8">
-                        <form role="form" id="material" action="<?php echo URL::base(); ?>backend/familias/editar/<?php echo $familia->id_catfamilia; ?>" method="POST">
+                        <form role="form" id="familias" action="<?php echo URL::base(); ?>backend/familias/editar/<?php echo $familia->id_catfamilia; ?>" method="POST">
                             <div class="form-group">
-                                <label>Codigo SAP<span class="required">*</span></label>
-                                <input class="form-control" name="cod_sap" value="<?php echo $familia->cod_sap; ?>" readonly>
+                                <label>Número de Familia<span class="required">*</span></label>
+                                <input class="form-control" name="num_familia" value="<?php echo $familia->num_familia; ?>" readonly>
                             </div>
                             <div class="form-group">
-                                <label>Nombre<span class="required">*</span></label>
-                                <input class="form-control" name="dsc_nombre" value="<?php echo $familia->dsc_nombre; ?>">
-                            </div>
-                            <div class="form-group">
-                                <label>Descripción</label>
+                                <label>Descripción<span class="required">*</span></label>
                                  <textarea class="form-control" rows="3" name="dsc_descripcion"><?php echo $familia->dsc_descripcion; ?></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label>Responsable<span class="required">*</span></label>
+                                <input class="form-control" name="nom_responsable" value="<?php echo $familia->num_familia; ?>">
+                            </div>
+                            <div class="form-group">
+                                <label>Extensión</label>
+                                <input class="form-control" name="num_extension" value="<?php echo $familia->num_extension; ?>">
+                            </div>
+                            <div class="form-group">
+                                <label>Región</label>
+                                <input class="form-control" name="dsc_region" value="<?php echo $familia->dsc_region; ?>">
+                            </div>
+                            <div class="form-group">
+                                <label>Área</label>
+                                <input class="form-control" name="dsc_area" value="<?php echo $familia->dsc_area; ?>">
                             </div>
                             <button type="submit" class="btn btn-default">Guardar</button>
                             <button type="reset" class="btn btn-default">Cancelar</button>
@@ -44,17 +56,21 @@
          $(document).ready(function(){
          $("#familias").validate({
             rules: {
-                cod_sap:'required',
-                dsc_nombre: 'required',
+                num_familia:'required',
+                dsc_descripcion: 'required',
+                nom_responsable:'required',
             },
             messages:{
-                cod_sap:{
+                num_familia:{
                     required:'Campo requerido',
                 },
-                dsc_nombre:{
+                dsc_descripcion:{
                     required:'Campo requerido',
-                },              
-            },       
+                },
+                nom_responsable:{
+                    required:'Campo requerido',
+                }              
+            },         
         });
     });
     });

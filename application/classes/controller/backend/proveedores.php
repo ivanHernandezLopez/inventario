@@ -3,8 +3,10 @@
 class Controller_Backend_Proveedores extends Controller_Core_Backend implements Standars_Backend{
 
 	protected $catproveedores,$catestados,$detmunicipios;
+
 	public function before()
 	{
+		$this->titulo = "PANEL DE ADMINISTRACIÓN DE PROVEEDORES";
 		parent::before();
 		$this->catproveedores = new Model_Catproveedores();
 		$this->catestados = new Model_Catestados();
@@ -87,17 +89,15 @@ class Controller_Backend_Proveedores extends Controller_Core_Backend implements 
 	public function valida_post()
 	{
 		return Validation::factory($_POST)
-		->rule("cod_sap","not_empty")
-		->rule("dsc_nombre","not_empty")
+		->rule("num_proveedor","not_empty")
+		->rule("dsc_razon_social","not_empty")
+		->rule("rfc_empresa","not_empty")
+		->rule("dsc_domicilio","not_empty")
 		->rule("id_catestado","not_empty")
 		->rule("id_detmunicipio","not_empty")
-		->rule("dsc_colonia","not_empty")
-		->rule("dsc_calle","not_empty")
-		->rule("dsc_numero","not_empty")
-		->rule("dsc_codigo_postal","not_empty")
+		->rule("dsc_contacto","not_empty")		
 		->rule("dsc_correo","email")
 		->rule("tel_oficina","not_empty")
-		->rule("tel_celular","not_empty")
 		->rule("dsc_comercializadora","not_empty");
 		 
 	}

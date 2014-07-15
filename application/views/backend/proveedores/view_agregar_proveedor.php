@@ -14,20 +14,20 @@
                     <div class="col-lg-8">
                         <form role="form" id="proveedor" action="<?php echo URL::base(); ?>backend/proveedores/agregar" method="POST">
                             <div class="form-group">
-                                <label>Codigo SAP<span class="required">*</span></label>
-                                <input class="form-control" name="cod_sap" >
+                                <label>Número de proveedor SAP</label>
+                                <input class="form-control" name="num_proveedor" >
                             </div>
                             <div class="form-group">
-                                <label>Nombre<span class="required">*</span></label>
-                                <input class="form-control" name="dsc_nombre" >
+                                <label>Razón social de la empresa<span class="required">*</span></label>
+                                <input class="form-control" name="dsc_razon_social" >
                             </div>
                             <div class="form-group">
-                                <label>Apellido paterno</label>
-                                <input class="form-control" name="dsc_apellido_pat" >
+                                <label>RFC<span class="required">*</span></label>
+                                <input class="form-control" name="rfc_empresa" >
                             </div>
                             <div class="form-group">
-                                <label>Apellido materno</label>
-                                <input class="form-control" name="dsc_apellido_mat" >
+                                <label>Domicilio<span class="required">*</span></label>
+                                <input class="form-control" name="dsc_domicilio" >
                             </div>
                             <div class="form-group">
                                 <label>Estado<span class="required">*</span></label>
@@ -47,32 +47,16 @@
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label>Colonia<span class="required">*</span></label>
-                                <input class="form-control" name="dsc_colonia" >
-                            </div>
-                            <div class="form-group">
-                                <label>Calle<span class="required">*</span></label>
-                                <input class="form-control" name="dsc_calle" >
-                            </div>
-                            <div class="form-group">
-                                <label>Número<span class="required">*</span></label>
-                                <input class="form-control" name="dsc_numero" >
-                            </div>
-                            <div class="form-group">
-                                <label>Codigo postal<span class="required">*</span></label>
-                                <input class="form-control" name="dsc_codigo_postal" >
-                            </div>
-                            <div class="form-group">
-                                <label>Correo<span class="required">*</span></label>
-                                <input class="form-control" name="dsc_correo" >
+                                <label>Contacto<span class="required">*</span></label>
+                                <input class="form-control" name="dsc_contacto" >
                             </div>
                             <div class="form-group">
                                 <label>Telefono Oficina<span class="required">*</span></label>
                                 <input class="form-control" name="tel_oficina" >
                             </div>
                             <div class="form-group">
-                                <label>Telefono celular<span class="required">*</span></label>
-                                <input class="form-control" name="tel_celular" >
+                                <label>Correo<span class="required">*</span></label>
+                                <input class="form-control" name="dsc_correo" >
                             </div>
                             <div class="form-group">
                                 <label>Comercializadora<span class="required">*</span></label>
@@ -104,27 +88,31 @@
     $(document).ready(function(){
         $('#proveedor').validate({
              rules: {
-                cod_sap:'required',
-                dsc_nombre: 'required',
+                num_proveedor:'required',
+                dsc_razon_social: 'required',
+                rfc_empresa:'required',
+                dsc_domicilio:'required',
                 id_catestado :'required',
                 id_detmunicipio:'required',
-                dsc_colonia:'required',
-                dsc_calle:'required',
-                dsc_numero:'required',
-                dsc_codigo_postal:'required',
+                dsc_contacto:'required',
                 dsc_correo:{
                     required:true,
                     email:true,
                 },
                 tel_oficina:'required',
-                tel_celular:'required',
                 dsc_comercializadora:'required',        
             },
             messages:{
-                cod_sap:{
+                num_provedor:{
                     required:'Campo requerido',
                 },
-                dsc_nombre:{
+                dsc_razon_social:{
+                    required:'Campo requerido',
+                },
+                rfc_empresa:{
+                    required:'Campo requerido',
+                },
+                dsc_domicilio:{
                     required:'Campo requerido',
                 },
                 id_catestado:{
@@ -133,18 +121,12 @@
                 id_detmunicipio:{
                     required:'Campo requerido',
                 },
-                dsc_colonia:{
+                dsc_contacto:{
                     required:'Campo requerido',
                 },
                 dsc_calle:{
                     required:'Campo requerido',
-                },
-                dsc_numero:{
-                    required:'Campo requerido',
-                },
-                dsc_codigo_postal:{
-                    required:'Campo requerido',
-                },
+                },                
                 dsc_correo:{
                     required:'Campo requerido',
                     email:'Correo no valido',
@@ -152,10 +134,7 @@
                 },
                 tel_oficina:{
                     required:'Campo requerido',
-                },
-                tel_celular:{
-                    required:'Campo requerido',
-                },
+                },              
                 dsc_comercializadora:{
                     required:'Campo requerido',
                 },

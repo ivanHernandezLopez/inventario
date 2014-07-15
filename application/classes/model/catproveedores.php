@@ -10,10 +10,10 @@ class Model_Catproveedores extends ORM {
 				catestados.dsc_nombre as id_catestado,
 				detmunicipios.dsc_nombre as id_detmunicipio,
 				catproveedores.id_catproveedor,
-				catproveedores.dsc_nombre,
-				catproveedores.dsc_apellido_pat,
-				catproveedores.dsc_apellido_mat,
-				catproveedores.dsc_colonia,
+				catproveedores.dsc_razon_social,
+				catproveedores.rfc_empresa,
+				catproveedores.dsc_contacto,
+				catproveedores.dsc_domicilio,
 				catproveedores.dsc_correo
 				FROM catproveedores	
 				INNER JOIN catestados ON catestados.id_catestado = catproveedores.id_catestado
@@ -25,19 +25,15 @@ class Model_Catproveedores extends ORM {
 	public function insert_registro($post,$id)
 	{
 		$query = ORM::factory($this->table_name())->where("id_catproveedor","=",$id)->find();
-		$query->cod_sap = $post["cod_sap"];
-		$query->dsc_nombre = $post["dsc_nombre"];
-		$query->dsc_apellido_pat = $post["dsc_apellido_pat"];
-		$query->dsc_apellido_mat = $post["dsc_apellido_mat"];
+		$query->num_proveedor = $post["num_proveedor"];
+		$query->dsc_razon_social = $post["dsc_razon_social"];
+		$query->rfc_empresa = $post["rfc_empresa"];
+		$query->dsc_domicilio = $post["dsc_domicilio"];
 		$query->id_catestado = $post["id_catestado"];
 		$query->id_detmunicipio = $post["id_detmunicipio"];
-		$query->dsc_colonia = $post["dsc_colonia"];
-		$query->dsc_calle = $post["dsc_calle"];
-		$query->dsc_numero = $post["dsc_numero"];
-		$query->dsc_codigo_postal = $post["dsc_codigo_postal"];
-		$query->dsc_correo = $post["dsc_correo"];
+		$query->dsc_contacto = $post["dsc_contacto"];	
 		$query->tel_oficina = $post["tel_oficina"];
-		$query->tel_celular = $post["tel_celular"];
+		$query->dsc_correo = $post["dsc_correo"];
 		$query->dsc_comercializadora = $post["dsc_comercializadora"];
 
 		if($id==0)

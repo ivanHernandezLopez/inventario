@@ -20,10 +20,11 @@
                     <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                         <thead>
                             <tr>
-                                <th colspan="5">Datos del material</th>
+                                <th colspan="6">Datos del material</th>
                                 <th colspan="2" width="60px">Acciones</th>
                             </tr>
                             <tr>
+                                <th>ID</th>
                                 <th>Codigo</th>
                                 <th>Nombre</th>
                                 <th>Familia</th>
@@ -36,6 +37,7 @@
                         <tbody>
                             <?php foreach($materiales as $material): ?>
                             <tr>
+                                <td><?php echo $material->id_catmaterial; ?></td>
                                 <td><?php echo $material->cod_producto; ?></td>
                                 <td><?php echo $material->dsc_nombre; ?></td>
                                 <td><?php echo $material->familia; ?></td>

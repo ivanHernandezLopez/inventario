@@ -19,7 +19,7 @@ class Controller_Core_Backend extends Controller_Core_System {
 	* @abstract
 	* @var A1 autentificacion de usuario
 	*/
-	protected $a1;
+	protected $a1,$titulo;
 	
 	public function before()
 	{
@@ -33,8 +33,10 @@ class Controller_Core_Backend extends Controller_Core_System {
 			"usuario" => $this->userdata,
 			));
 		$this->template = View::factory("backend/structure/view_template")->set(array(
-				"menu_superior"	=> View::factory("backend/structure/view_menu_superior"),
-				"menu_lateral"	=> View::factory("backend/structure/view_menu_lateral")->set(array(
+				"menu_superior"		=> View::factory("backend/structure/view_menu_superior")->set(array(
+					"titulo_principal"	=> $this->titulo,
+					)),
+				"menu_lateral"		=> View::factory("backend/structure/view_menu_lateral")->set(array(
 						"controller"	=> $this->request->controller(),
 					)),
 			));		

@@ -1,5 +1,5 @@
 <div class="navbar-header">
-    <a class="navbar-brand" href="javascript:void(0);">PANEL DE ADMINISTRACIÓN DE INVENTARIOS</a>
+    <a class="navbar-brand" href="javascript:void(0);"><?php echo $titulo_principal; ?></a>
 </div>
 <!-- /.navbar-header -->
  <ul class="nav navbar-top-links navbar-right">

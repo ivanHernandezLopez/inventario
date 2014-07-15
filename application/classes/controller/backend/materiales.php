@@ -6,6 +6,7 @@ class Controller_Backend_Materiales extends Controller_Core_Backend implements S
 
 	public function before()
 	{
+		$this->titulo = "PANEL DE ADMINISTRACIÓN DE MATERIALES";
 		parent::before();
 		$this->catunidades = new Model_Catunidades();
 		$this->catmateriales = new Model_Catmateriales();

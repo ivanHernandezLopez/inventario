@@ -20,24 +20,26 @@
                     <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                         <thead>
                             <tr>
-                                <th colspan="3">Datos del usuario</th>
-                                <th colspan="2" width="60px">Acciones</th>
+                                <th colspan="4" width="300px">Datos de las familias</th>
+                                <th colspan="2" width="40px">Acciones</th>
                             </tr>
                             <tr>
-                                <th>Codigo</th>
-                                <th>Nombre</th>
-                                <th>Descripción</th>
+                                <th>ID</th>
+                                <th width="50px">Num. de familia</th>
+                                <th width="200px">Descripción</th>
+                                <th width="50px">Responsable</th>
                                
-                                <th width="30px">Editar</th>
-                                <th width="30px">Eliminar</th>                              
+                                <th width="20px">Editar</th>
+                                <th width="20px">Eliminar</th>                              
                             </tr>
                         </thead>
                         <tbody>
                             <?php foreach($familias as $familia): ?>
                             <tr>
-                                <td><?php echo $familia->cod_sap; ?></td>
-                                <td><?php echo $familia->dsc_nombre; ?></td>
+                                 <td><?php echo $familia->id_catfamilia; ?></td>
+                                <td><?php echo $familia->num_familia; ?></td>
                                 <td><?php echo $familia->dsc_descripcion; ?></td>
+                                <td><?php echo $familia->nom_responsable; ?></td>
                                 <td>
                                     <a href="<?php echo URL::base(); ?>backend/familias/editar/<?php echo $familia->id_catfamilia; ?>" title="Editar usuario">
                                         <span class="glyphicon glyphicon-pencil"></span>

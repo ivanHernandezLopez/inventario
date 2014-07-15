@@ -20,14 +20,15 @@
                     <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                         <thead>
                             <tr>
-                                <th colspan="5">Datos del proveedor</th>
+                                <th colspan="6">Datos de los proveedores</th>
                                 <th colspan="2" width="60px">Acciones</th>
                             </tr>
                             <tr>
-                                <th>Nombre</th>
-                                <th>Estado</th>
-                                <th>Municipio</th>
-                                <th>Colonia</th>
+                                <th>ID</th>
+                                <th>Razón Social</th>
+                                <th>RFC</th>
+                                <th>Contacto</th>
+                                <th>Domicilio</th>
                                 <th>Correo</th> 
                                 <th width="30px">Editar</th>
                                 <th width="30px">Eliminar</th>                              
@@ -36,10 +37,11 @@
                         <tbody>
                             <?php foreach($proveedores as $proveedor): ?>
                             <tr>
-                                <td><?php echo $proveedor->dsc_nombre." ".$proveedor->dsc_apellido_pat." ".$proveedor->dsc_apellido_mat; ?></td>
-                                <td><?php echo $proveedor->id_catestado; ?></td>
-                                <td><?php echo $proveedor->id_detmunicipio; ?></td>
-                                <td><?php echo $proveedor->dsc_colonia; ?></td>
+                                <td><?php echo $proveedor->id_catproveedor; ?></td>
+                                <td><?php echo $proveedor->dsc_razon_social; ?></td>
+                                <td><?php echo $proveedor->rfc_empresa; ?></td>
+                                <td><?php echo $proveedor->dsc_contacto; ?></td>
+                                <td><?php echo $proveedor->dsc_domicilio; ?></td>
                                 <td><?php echo $proveedor->dsc_correo; ?></td>
                                 <td>
                                     <a href="<?php echo URL::base(); ?>backend/proveedores/editar/<?php echo $proveedor->id_catproveedor; ?>" title="Editar usuario">
