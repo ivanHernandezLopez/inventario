@@ -22,42 +22,47 @@
                                 <input class="form-control" name="dsc_razon_social" >
                             </div>
                             <div class="form-group">
-                                <label>RFC<span class="required">*</span></label>
+                                <label>RFC</label>
                                 <input class="form-control" name="rfc_empresa" >
                             </div>
+                            
                             <div class="form-group">
-                                <label>Domicilio<span class="required">*</span></label>
-                                <input class="form-control" name="dsc_domicilio" >
+                                <label>Dirección<span class="required">*</span></label>
+                                <textarea class="form-control" type="text" name="dsc_domicilio"></textarea>
                             </div>
                             <div class="form-group">
-                                <label>Estado<span class="required">*</span></label>
-                                <select class="form-control" id="estado" name="id_catestado">
-                                    <option value="">Seleccione el estado</option>
-                                    <?php foreach($estados as $estado): ?>
-                                        <option value="<?php echo $estado->id_catestado; ?>">
-                                            <?php echo $estado->dsc_nombre; ?>
-                                        </option>
-                                    <?php endforeach; ?>
-                                </select>
+                                <label>Nombre 1<span class="required">*</span></label>
+                                <input class="form-control" type="text" name="nombre1">
                             </div>
                             <div class="form-group">
-                                <label>Municipio<span class="required">*</span></label>
-                                <select class="form-control" id="municipios" name="id_detmunicipio">
-                                    <option value="">Seleccione el municipio</option>
-                                </select>
+                                <label>Nombre 2</label>
+                                <input class="form-control" type="text" name="nombre2">
                             </div>
                             <div class="form-group">
-                                <label>Contacto<span class="required">*</span></label>
-                                <input class="form-control" name="dsc_contacto" >
+                                <label>Telefono 1<span class="required">*</span></label>
+                                <input class="form-control" type="text" name="telefono1">
                             </div>
                             <div class="form-group">
-                                <label>Telefono Oficina<span class="required">*</span></label>
-                                <input class="form-control" name="tel_oficina" >
+                                <label>Telefono 2</label>
+                                <input class="form-control" type="text" name="telefono2">
                             </div>
                             <div class="form-group">
-                                <label>Correo<span class="required">*</span></label>
-                                <input class="form-control" name="dsc_correo" >
+                                <label>Telefono 3</label>
+                                <input class="form-control" type="text" name="telefono3">
                             </div>
+                            <div class="form-group">
+                                <label>Correo electronico 1<span class="required">*</span></label>
+                                <input class="form-control" type="text" name="correo1">
+                            </div>
+                            <div class="form-group">
+                                <label>Correo electronico 2</label>
+                                <input class="form-control" type="text" name="correo2">
+                            </div>
+                            <div class="form-group">
+                                <label>Correo electronico 3</label>
+                                <input class="form-control" type="text" name="correo3">
+                            </div>
+                            
                             <div class="form-group">
                                 <label>Comercializadora<span class="required">*</span></label>
                                 <label class="radio-inline">
@@ -69,7 +74,11 @@
                                 No
                                 </label>
                             </div>
-                           
+                            <div class="form-group">
+                                <label>Material a cotizar</label>
+                                <textarea class="form-control" type="text" name="dsc_materiales"></textarea>
+                            </div>
+
                             <button type="submit" class="btn btn-default">Guardar</button>
                             <button type="reset" class="btn btn-default">Cancelar</button>
                         </form>
@@ -87,59 +96,14 @@
 <script>
     $(document).ready(function(){
         $('#proveedor').validate({
-             rules: {
-                num_proveedor:'required',
-                dsc_razon_social: 'required',
-                rfc_empresa:'required',
+             rules: {               
+                dsc_razon_social: 'required',                
                 dsc_domicilio:'required',
-                id_catestado :'required',
-                id_detmunicipio:'required',
-                dsc_contacto:'required',
-                dsc_correo:{
-                    required:true,
-                    email:true,
-                },
-                tel_oficina:'required',
+                nombre1:'required',
+                telefono1:'required',
+                correo1:'required',
                 dsc_comercializadora:'required',        
-            },
-            messages:{
-                num_provedor:{
-                    required:'Campo requerido',
-                },
-                dsc_razon_social:{
-                    required:'Campo requerido',
-                },
-                rfc_empresa:{
-                    required:'Campo requerido',
-                },
-                dsc_domicilio:{
-                    required:'Campo requerido',
-                },
-                id_catestado:{
-                    required:'Campo requerido',
-                },
-                id_detmunicipio:{
-                    required:'Campo requerido',
-                },
-                dsc_contacto:{
-                    required:'Campo requerido',
-                },
-                dsc_calle:{
-                    required:'Campo requerido',
-                },                
-                dsc_correo:{
-                    required:'Campo requerido',
-                    email:'Correo no valido',
-
-                },
-                tel_oficina:{
-                    required:'Campo requerido',
-                },              
-                dsc_comercializadora:{
-                    required:'Campo requerido',
-                },
-               
-            },               
+            },            
         });
         $('#estado').change(function(){
             var id_estado = $(this).val(); 
@@ -147,6 +111,8 @@
                 $('#municipios').html(data);
             });
         });
+
+        
         
     });
 </script>

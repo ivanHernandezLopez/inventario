@@ -31,7 +31,7 @@
                                     <option value="">Seleccion una familia...</option>
                                      <?php foreach($familias as $familia): ?>
                                         <option value="<?php echo $familia->id_catfamilia; ?>" <?php if($familia->id_catfamilia==$material->id_catfamilia) echo "selected"; ?>>
-                                            <?php echo $familia->dsc_nombre; ?>
+                                            <?php echo $familia->dsc_descripcion; ?>
                                         </option>
                                     <?php endforeach; ?>
                                 </select>
@@ -48,18 +48,20 @@
                                 </select>
                             </div>
                            <div class="form-group">
-                                <label>Proveedor <span class="required">*</span></label>
+                                <label>Razón social de la empresa <span class="required">*</span></label>
                                 <select class="form-control" name="id_catproveedor">
                                     <option value="">Seleccion un proveedor...</option>
                                      <?php foreach($proveedores as $proveedor): ?>
-                                        <option value="<?php echo $proveedor->id_catproveedor." ".$proveedor->dsc_apellido_pat." ".$proveedor->dsc_apellido_mat; ?>" <?php if($proveedor->id_catproveedor==$material->id_catproveedor) echo "selected"; ?>>
-                                            <?php echo $proveedor->dsc_nombre; ?>
+                                        <option value="<?php echo $proveedor->id_catproveedor; ?>" <?php if($proveedor->id_catproveedor==$material->id_catproveedor) echo "selected"; ?>>
+                                            <?php echo $proveedor->dsc_razon_social; ?>
                                         </option>
                                     <?php endforeach; ?>
                                 </select>
                             </div>
+                            <?php if($usuario->tipo_usuario==1 OR $usuario->tipo_usuario==2): ?>
                             <button type="submit" class="btn btn-default">Guardar</button>
                             <button type="reset" class="btn btn-default">Cancelar</button>
+                        <?php endif; ?>
                         </form>
                     </div>
                     

@@ -14,6 +14,15 @@
                     <div class="col-lg-8">
                         <form role="form" id="perfil" action="<?php echo URL::base(); ?>backend/usuarios/agregar" method="POST">
                             <div class="form-group">
+                                <label>Tipo de usuario <span class="required">*</span></label>
+                                <select class="form-control" name="tipo_usuario">
+                                    <option value="">Seleccione tipo de usuario...</option>
+                                    <option value="1">Administrador</option>
+                                    <option value="2">Operador</option>
+                                    <option value="3">Consultar</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
                                 <label>Codigo <span class="required">*</span></label>
                                 <input class="form-control" name="cod_usuario" >
                             </div>
@@ -59,6 +68,7 @@
     $(document).ready(function(){
          $("#perfil").validate({
             rules: {
+                tipo_usuario:'required',
                 cod_usuario:'required',
                 dsc_nombre: 'required',
                 dsc_correo: {

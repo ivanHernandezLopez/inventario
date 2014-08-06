@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jul 15, 2014 at 05:37 PM
+-- Generation Time: Jul 18, 2014 at 03:09 PM
 -- Server version: 5.5.37-0ubuntu0.13.10.1
 -- PHP Version: 5.5.3-1ubuntu2.3
 
@@ -95,7 +95,14 @@ CREATE TABLE IF NOT EXISTS `catfamilias` (
   `dsc_baja` text,
   `sta_baja` char(1) DEFAULT NULL,
   PRIMARY KEY (`id_catfamilia`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `catfamilias`
+--
+
+INSERT INTO `catfamilias` (`id_catfamilia`, `num_familia`, `dsc_descripcion`, `nom_responsable`, `num_extension`, `dsc_region`, `dsc_area`, `fec_alta`, `fec_modif`, `fec_baja`, `dsc_baja`, `sta_baja`) VALUES
+(1, '1', 'familia', 'responsable', '3', '4', 'area', '2014-07-17', NULL, NULL, NULL, 'N');
 
 -- --------------------------------------------------------
 
@@ -117,7 +124,14 @@ CREATE TABLE IF NOT EXISTS `catmateriales` (
   `dsc_baja` text,
   `sta_baja` char(1) DEFAULT NULL,
   PRIMARY KEY (`id_catmaterial`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `catmateriales`
+--
+
+INSERT INTO `catmateriales` (`id_catmaterial`, `cod_producto`, `dsc_nombre`, `dsc_descripcion`, `id_catfamilia`, `id_catunidad`, `id_catproveedor`, `fec_alta`, `fec_modif`, `fec_baja`, `dsc_baja`, `sta_baja`) VALUES
+(1, 1, 'nomnbre', 'descripcion', 1, 8, 1, '2014-07-17', NULL, NULL, NULL, 'N');
 
 -- --------------------------------------------------------
 
@@ -133,9 +147,6 @@ CREATE TABLE IF NOT EXISTS `catproveedores` (
   `dsc_domicilio` varchar(250) DEFAULT NULL,
   `id_catestado` int(11) NOT NULL,
   `id_detmunicipio` int(11) NOT NULL,
-  `dsc_contacto` varchar(250) DEFAULT NULL,
-  `dsc_correo` varchar(150) NOT NULL,
-  `tel_oficina` int(11) NOT NULL,
   `dsc_comercializadora` char(2) NOT NULL,
   `fec_alta` date DEFAULT NULL,
   `fec_modif` date DEFAULT NULL,
@@ -143,7 +154,17 @@ CREATE TABLE IF NOT EXISTS `catproveedores` (
   `dsc_baja` text,
   `sta_baja` char(1) DEFAULT NULL,
   PRIMARY KEY (`id_catproveedor`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
+
+--
+-- Dumping data for table `catproveedores`
+--
+
+INSERT INTO `catproveedores` (`id_catproveedor`, `num_proveedor`, `dsc_razon_social`, `rfc_empresa`, `dsc_domicilio`, `id_catestado`, `id_detmunicipio`, `dsc_comercializadora`, `fec_alta`, `fec_modif`, `fec_baja`, `dsc_baja`, `sta_baja`) VALUES
+(1, 'sap123', 'rz', 'rfc', 'domicilio', 21, 1569, 'no', '2014-07-18', NULL, NULL, NULL, 'N'),
+(2, 'sap123', 'rz', 'rfc', 'domicilio', 21, 1569, 'no', '2014-07-18', NULL, NULL, NULL, 'N'),
+(3, 'sap123', 'rz', 'rfc', 'domicilio', 21, 1569, 'no', '2014-07-18', NULL, NULL, NULL, 'N'),
+(4, 'sap12345', 'rz', 'rfc', 'domicilio', 15, 657, 'no', '2014-07-18', NULL, NULL, NULL, 'N');
 
 -- --------------------------------------------------------
 
@@ -195,7 +216,7 @@ CREATE TABLE IF NOT EXISTS `catusuarios` (
   `dsc_baja` text,
   `sta_baja` char(1) NOT NULL,
   PRIMARY KEY (`id_catusuario`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `catusuarios`
@@ -204,6 +225,31 @@ CREATE TABLE IF NOT EXISTS `catusuarios` (
 INSERT INTO `catusuarios` (`id_catusuario`, `dsc_nombre`, `dsc_apellido_pat`, `dsc_apellido_mat`, `dsc_correo`, `cod_usuario`, `dsc_contrasena`, `fec_alta`, `fec_modif`, `fec_baja`, `dsc_baja`, `sta_baja`) VALUES
 (1, 'Ivan', 'Hernadez', 'Lopez', 'van.m285@gmail.com', 12345, '$2a$12$SgfaMukmHGVpiLMHxQO6QOKg3FFh6JmUmN2ChiiZmK14LmGFmrT3C', '2014-07-07', '2014-07-08', NULL, NULL, 'N'),
 (2, 'Adriana', 'Tellez', 'Martinez', 'aditha.130990@gmail.com', 13091990, '$2a$12$kjqzN2UDyQ2AMWBZQJ4kv..vnT5Z5LaPoNQ8lgXnKdHHXPHJ1wmSW', '2014-07-02', '0000-00-00', '0000-00-00', '', 'N');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `detcontactos`
+--
+
+CREATE TABLE IF NOT EXISTS `detcontactos` (
+  `id_detcontacto` int(11) NOT NULL AUTO_INCREMENT,
+  `id_catproveedor` int(11) DEFAULT NULL,
+  `dsc_nombre` varchar(250) DEFAULT NULL,
+  `dsc_telefonos` text,
+  `dsc_correos` text,
+  PRIMARY KEY (`id_detcontacto`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
+
+--
+-- Dumping data for table `detcontactos`
+--
+
+INSERT INTO `detcontactos` (`id_detcontacto`, `id_catproveedor`, `dsc_nombre`, `dsc_telefonos`, `dsc_correos`) VALUES
+(1, 2, 'n1', '["T1","",""]', '["","",""]'),
+(2, 3, 'n1', '["T1","",""]', '["","",""]'),
+(3, 4, 'n1', '["t11","t12","t13"]', '["c11","c12","c13"]'),
+(4, 4, 'n2', '["t21","t22","t23"]', '["c21","c22","c23"]');
 
 -- --------------------------------------------------------
 

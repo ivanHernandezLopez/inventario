@@ -1,11 +1,13 @@
 <div class="row">
     <div class="col-lg-12">
         <h3 class="page-header">Catalogo de familias</h3>
+        <?php if($usuario->tipo_usuario==1 OR $usuario->tipo_usuario==2): ?>
         <p>
             <a href="<?php echo URL::base(); ?>backend/familias/agregar">
                 <button class="btn btn-primary btn-lg" type="button">Agregar</button>
             </a>
         </p>
+    <?php endif; ?>
     </div>
 </div>
 <div class="row">
@@ -30,7 +32,9 @@
                                 <th width="50px">Responsable</th>
                                
                                 <th width="20px">Editar</th>
-                                <th width="20px">Eliminar</th>                              
+                                <?php if($usuario->tipo_usuario==1 OR $usuario->tipo_usuario==2): ?>
+                                <th width="20px">Eliminar</th>    
+                                <?php endif; ?>                          
                             </tr>
                         </thead>
                         <tbody>
@@ -45,11 +49,13 @@
                                         <span class="glyphicon glyphicon-pencil"></span>
                                     </a>
                                 </td>
+                                <?php if($usuario->tipo_usuario==1 OR $usuario->tipo_usuario==2): ?>
                                 <td>                                   
                                     <a href="javascript:void(0);" id="<?php echo $familia->id_catfamilia; ?>" class="delete" title="Eliminar usuario">
                                         <span class="glyphicon glyphicon-remove"></span>
                                     </a>
                                 </td>
+                            <?php endif; ?>
                             </tr> 
                             <?php endforeach; ?>
                         </tbody>

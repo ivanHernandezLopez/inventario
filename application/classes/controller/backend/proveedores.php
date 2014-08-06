@@ -2,7 +2,7 @@
 
 class Controller_Backend_Proveedores extends Controller_Core_Backend implements Standars_Backend{
 
-	protected $catproveedores,$catestados,$detmunicipios;
+	protected $catproveedores,$catestados,$detmunicipios,$detcontactos;
 
 	public function before()
 	{
@@ -11,6 +11,7 @@ class Controller_Backend_Proveedores extends Controller_Core_Backend implements 
 		$this->catproveedores = new Model_Catproveedores();
 		$this->catestados = new Model_Catestados();
 		$this->detmunicipios = new MOdel_Detmunicipios();
+		//$this->detcontactos = new Model_Detcontactos();
 
 	}
 	public function action_index()
@@ -28,12 +29,14 @@ class Controller_Backend_Proveedores extends Controller_Core_Backend implements 
 		$msg = ""; $error = "";
 		if($this->request->method()==Request::POST)
 		{
+						
 			$post = $this->valida_post();
 			$msg = "Proporcione todos los campos requeridos"; $error="info";
 			if($post->check())
 			{
 				$msg = "Un error ocurrio durante la acción, intentelo mas tarde.";
 				$error   = "warning";
+				
 				if($this->catproveedores->insert_registro($post,0))
 				{
 					$msg = "Registro insertado correctamente"; $error="success";
@@ -72,9 +75,7 @@ class Controller_Backend_Proveedores extends Controller_Core_Backend implements 
 
 		$this->body = View::factory("backend/proveedores/view_editar_proveedor")->set(array(
 				"p"			=> $proveedor,
-				"edo"		=> $this->catestados->FindBy("id_catestado",$proveedor->id_catestado),
-				"municipio"	=> $this->detmunicipios->FindBy("id_detmunicipio",$proveedor->id_detmunicipio),
-				"estados"	=> $this->catestados->select_registros_activos(),
+				
 				"msg"	=> $msg,
 				"error"	=> $error,
 			));
@@ -85,19 +86,23 @@ class Controller_Backend_Proveedores extends Controller_Core_Backend implements 
 		$this->catproveedores->UpdateStatus("id_catproveedor",$id);
 	}
 
+	public function action_contactos()
+	{
+		$this->body = View::factory("backend/proveedores/view_agregar_contacto")->set(array(
+				"post"	=> $_POST,
+			));
+	}
+
 	//Metodos internos para validacion KOHANA
 	public function valida_post()
 	{
 		return Validation::factory($_POST)
-		->rule("num_proveedor","not_empty")
+		
 		->rule("dsc_razon_social","not_empty")
-		->rule("rfc_empresa","not_empty")
 		->rule("dsc_domicilio","not_empty")
-		->rule("id_catestado","not_empty")
-		->rule("id_detmunicipio","not_empty")
-		->rule("dsc_contacto","not_empty")		
-		->rule("dsc_correo","email")
-		->rule("tel_oficina","not_empty")
+		->rule("nombre1","not_empty")
+		->rule("telefono1","not_empty")
+		->rule("correo1","not_empty")
 		->rule("dsc_comercializadora","not_empty");
 		 
 	}

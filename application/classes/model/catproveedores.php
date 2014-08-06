@@ -7,18 +7,9 @@ class Model_Catproveedores extends ORM {
 	public function select_registros_activos()
 	{
 		$sql = "SELECT 
-				catestados.dsc_nombre as id_catestado,
-				detmunicipios.dsc_nombre as id_detmunicipio,
-				catproveedores.id_catproveedor,
-				catproveedores.dsc_razon_social,
-				catproveedores.rfc_empresa,
-				catproveedores.dsc_contacto,
-				catproveedores.dsc_domicilio,
-				catproveedores.dsc_correo
+				*
 				FROM catproveedores	
-				INNER JOIN catestados ON catestados.id_catestado = catproveedores.id_catestado
-				INNER JOIN detmunicipios ON detmunicipios.id_detmunicipio = catproveedores.id_detmunicipio
-				WHERE catproveedores.sta_baja = 'N'";
+				WHERE sta_baja = 'N'";
 		return $this->selectDB($sql);
 	}
 
@@ -29,13 +20,16 @@ class Model_Catproveedores extends ORM {
 		$query->dsc_razon_social = $post["dsc_razon_social"];
 		$query->rfc_empresa = $post["rfc_empresa"];
 		$query->dsc_domicilio = $post["dsc_domicilio"];
-		$query->id_catestado = $post["id_catestado"];
-		$query->id_detmunicipio = $post["id_detmunicipio"];
-		$query->dsc_contacto = $post["dsc_contacto"];	
-		$query->tel_oficina = $post["tel_oficina"];
-		$query->dsc_correo = $post["dsc_correo"];
+		$query->nombre1 = $post["nombre1"];
+		$query->nombre2 = $post["nombre2"];
+		$query->telefono1 = $post["telefono1"];
+		$query->telefono2 = $post["telefono2"];
+		$query->telefono3 = $post["telefono3"];
+		$query->correo1 = $post["correo1"];
+		$query->correo2 = $post["correo2"];
+		$query->correo3 = $post["correo3"];
 		$query->dsc_comercializadora = $post["dsc_comercializadora"];
-
+		$query->dsc_materiales = $post["dsc_materiales"];
 		if($id==0)
 			$query->fec_alta = date("Y-m-d");
 		else

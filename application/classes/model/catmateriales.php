@@ -30,7 +30,7 @@ class Model_Catmateriales extends ORM {
 				catmateriales.dsc_nombre,
 				catfamilias.num_familia as familia,
 				catunidades.dsc_nombre as unidad,
-				CONCAT(catproveedores.dsc_contacto) as proveedor
+				CONCAT(catproveedores.dsc_razon_social) as proveedor
 				FROM catmateriales	
 				INNER JOIN catfamilias ON catfamilias.id_catfamilia = catmateriales.id_catfamilia
 				INNER JOIN catunidades ON catunidades.id_catunidad = catmateriales.id_catunidad

@@ -1,11 +1,13 @@
 <div class="row">
     <div class="col-lg-12">
         <h3 class="page-header">Catalogo de usuarios</h3>
+        <?php if($usuario->tipo_usuario==1): ?>
         <p>
             <a href="<?php echo URL::base(); ?>backend/usuarios/agregar">
                 <button class="btn btn-primary btn-lg" type="button">Agregar</button>
             </a>
         </p>
+        <?php endif; ?>
     </div>
 </div>
 <div class="row">
@@ -21,7 +23,9 @@
                         <thead>
                             <tr>
                                 <th colspan="6">Datos de los usuarios</th>
+                                
                                 <th colspan="2" width="60px">Acciones</th>
+                                
                             </tr>
                             <tr>
                                 <th>ID</th>
@@ -30,32 +34,39 @@
                                 <th>Ape. Paterno</th>
                                 <th>Ape. Materno</th>
                                 <th>Correo</th>
+                                
                                 <th width="30px">Editar</th>
+                                <?php if($usuario->tipo_usuario==1): ?>
                                 <th width="30px">Eliminar</th>
+                                <?php endif; ?>
+                                
                             </tr>
                         </thead>
                         <tbody>
-                            <?php foreach($usuarios as $usuario): ?>
+                            <?php foreach($usuarios as $usu): ?>
 
                             <tr>
-                            <td><?php echo $usuario->id_catusuario; ?></td>
-                                <td><?php echo $usuario->cod_usuario; ?></td>
-                                <td><?php echo $usuario->dsc_nombre; ?></td>
-                                <td><?php echo $usuario->dsc_apellido_pat; ?></td>
-                                <td><?php echo $usuario->dsc_apellido_mat; ?></td>
-                                <td><?php echo $usuario->dsc_correo; ?></td>
+                                <td><?php echo $usu->id_catusuario; ?></td>
+                                <td><?php echo $usu->cod_usuario; ?></td>
+                                <td><?php echo $usu->dsc_nombre; ?></td>
+                                <td><?php echo $usu->dsc_apellido_pat; ?></td>
+                                <td><?php echo $usu->dsc_apellido_mat; ?></td>
+                                <td><?php echo $usu->dsc_correo; ?></td>
+                                
                                 <td>
                                     <a href="<?php echo URL::base(); ?>backend/usuarios/editar/<?php echo $usuario->id_catusuario; ?>" title="Editar usuario">
                                         <span class="glyphicon glyphicon-pencil"></span>
                                     </a>
                                 </td>
-                                <td>
-                                    <?php if($usuario->id_catusuario!=1): ?>
-                                    <a href="javascript:void(0);" id="<?php echo $usuario->id_catusuario; ?>" class="delete" title="Eliminar usuario">
+                                <?php if($usuario->tipo_usuario==1): ?>
+                                <td>                                  
+                                    <a href="javascript:void(0);" id="<?php echo $usu->id_catusuario; ?>" class="delete" title="Eliminar usuario">
                                         <span class="glyphicon glyphicon-remove"></span>
                                     </a>
-                                    <?php endif; ?>
                                 </td>
+                                <?php endif; ?>
+                                
+                                
                             </tr> 
                             <?php endforeach; ?>
                         </tbody>

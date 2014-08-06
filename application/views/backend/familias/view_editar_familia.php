@@ -37,8 +37,10 @@
                                 <label>Área</label>
                                 <input class="form-control" name="dsc_area" value="<?php echo $familia->dsc_area; ?>">
                             </div>
+                            <?php if($usuario->tipo_usuario==1 OR $usuario->tipo_usuario==2): ?>
                             <button type="submit" class="btn btn-default">Guardar</button>
                             <button type="reset" class="btn btn-default">Cancelar</button>
+                        <?php endif; ?>
                         </form>
                     </div>
                     

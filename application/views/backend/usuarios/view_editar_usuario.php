@@ -41,8 +41,10 @@
                                 <label>Repetir contraseña</label>
                                 <input type="password"  class="form-control" name="dsc_contrasena_repit">
                             </div>
+                            <?php if($usuario->tipo_usuario==1): ?>
                             <button type="submit" class="btn btn-default">Guardar</button>
                             <button type="reset" class="btn btn-default">Cancelar</button>
+                            <?php endif; ?>
                         </form>
                     </div>
                     

@@ -22,42 +22,47 @@
                                 <input class="form-control" name="dsc_razon_social" value="<?php echo $p->dsc_razon_social ;?>">
                             </div>
                             <div class="form-group">
-                                <label>RFC<span class="required">*</span></label>
+                                <label>RFC</label>
                                 <input class="form-control" name="rfc_empresa" value="<?php echo $p->rfc_empresa ;?>">
                             </div>
                             <div class="form-group">
-                                <label>Domicilio<span class="required">*</span></label>
-                                <input class="form-control" name="dsc_domicilio" value="<?php echo $p->dsc_domicilio ;?>">
+                                <label>Dirección<span class="required">*</span></label>
+                                <textarea class="form-control" type="text" name="dsc_domicilio" ><?php echo $p->dsc_domicilio; ?></textarea>
                             </div>
                             <div class="form-group">
-                                <label>Estado<span class="required">*</span></label>
-                                <select class="form-control" id="estado" name="id_catestado">
-                                    <option value="">Seleccione el estado</option>
-                                    <?php foreach($estados as $estado): ?>
-                                        <option value="<?php echo $estado->id_catestado; ?>" <?php if($p->id_catestado == $estado->id_catestado) echo "selected"; ?>>
-                                            <?php echo $estado->dsc_nombre; ?>
-                                        </option>
-                                    <?php endforeach; ?>
-                                </select>
+                                <label>Nombre 1<span class="required">*</span></label>
+                                <input class="form-control" type="text" name="nombre1" value="<?php echo $p->nombre1; ?>">
                             </div>
                             <div class="form-group">
-                                <label>Municipio<span class="required">*</span></label>
-                                <select class="form-control" id="municipios" name="id_detmunicipio">
-                                    <option value="<?php echo $p->id_detmunicipio; ?>" selected><?php echo $municipio->dsc_nombre; ?></option>
-                                </select>
+                                <label>Nombre 2</label>
+                                <input class="form-control" type="text" name="nombre2" value="<?php echo $p->nombre2; ?>">
                             </div>
                             <div class="form-group">
-                                <label>Contacto<span class="required">*</span></label>
-                                <input class="form-control" name="dsc_contacto" value="<?php echo $p->dsc_contacto ;?>">
+                                <label>Telefono 1<span class="required">*</span></label>
+                                <input class="form-control" type="text" name="telefono1" value="<?php echo $p->telefono1; ?>">
                             </div>
                             <div class="form-group">
-                                <label>Telefono Oficina<span class="required">*</span></label>
-                                <input class="form-control" name="tel_oficina" value="<?php echo $p->tel_oficina ;?>">
+                                <label>Telefono 2</label>
+                                <input class="form-control" type="text" name="telefono2" value="<?php echo $p->telefono2; ?>">
                             </div>
                             <div class="form-group">
-                                <label>Correo<span class="required">*</span></label>
-                                <input class="form-control" name="dsc_correo" value="<?php echo $p->dsc_correo ;?>">
+                                <label>Telefono 3</label>
+                                <input class="form-control" type="text" name="telefono3" value="<?php echo $p->telefono3; ?>">
                             </div>
+                            <div class="form-group">
+                                <label>Correo electronico 1<span class="required">*</span></label>
+                                <input class="form-control" type="text" name="correo1" value="<?php echo $p->correo1; ?>">
+                            </div>
+                            <div class="form-group">
+                                <label>Correo electronico 2</label>
+                                <input class="form-control" type="text" name="correo2" value="<?php echo $p->correo2; ?>">
+                            </div>
+                            <div class="form-group">
+                                <label>Correo electronico 3</label>
+                                <input class="form-control" type="text" name="correo3" value="<?php echo $p->correo3; ?>">
+                            </div>
+                            
+                            
                             <div class="form-group">
                                 <label>Comercializadora<span class="required">*</span></label>
                                 <label class="radio-inline">
@@ -69,9 +74,15 @@
                                 No
                                 </label>
                             </div>
-                           
+
+                            <div class="form-group">
+                                <label>Material a cotizar</label>
+                                <textarea class="form-control" type="text" name="dsc_materiales"><?php echo $p->dsc_materiales; ?></textarea>
+                            </div>
+                           <?php if($usuario->tipo_usuario==1 OR $usuario->tipo_usuario==2): ?>
                             <button type="submit" class="btn btn-default">Guardar</button>
                             <button type="reset" class="btn btn-default">Cancelar</button>
+                            <?php endif; ?>
                         </form>
                     </div>
                     
@@ -87,71 +98,16 @@
 <script>
     $(document).ready(function(){
         $('#proveedor').validate({
-             rules: {
-                cod_sap:'required',
-                dsc_nombre: 'required',
-                id_catestado :'required',
-                id_detmunicipio:'required',
-                dsc_colonia:'required',
-                dsc_calle:'required',
-                dsc_numero:'required',
-                dsc_codigo_postal:'required',
-                dsc_correo:{
-                    required:true,
-                    email:true,
-                },
-                tel_oficina:'required',
-                tel_celular:'required',
+             rules: {               
+                dsc_razon_social: 'required',                
+                dsc_domicilio:'required',
+                nombre1:'required',
+                telefono1:'required',
+                correo1:'required',
                 dsc_comercializadora:'required',        
-            },
-            messages:{
-                cod_sap:{
-                    required:'Campo requerido',
-                },
-                dsc_nombre:{
-                    required:'Campo requerido',
-                },
-                id_catestado:{
-                    required:'Campo requerido',
-                },
-                id_detmunicipio:{
-                    required:'Campo requerido',
-                },
-                dsc_colonia:{
-                    required:'Campo requerido',
-                },
-                dsc_calle:{
-                    required:'Campo requerido',
-                },
-                dsc_numero:{
-                    required:'Campo requerido',
-                },
-                dsc_codigo_postal:{
-                    required:'Campo requerido',
-                },
-                dsc_correo:{
-                    required:'Campo requerido',
-                    email:'Correo no valido',
-
-                },
-                tel_oficina:{
-                    required:'Campo requerido',
-                },
-                tel_celular:{
-                    required:'Campo requerido',
-                },
-                dsc_comercializadora:{
-                    required:'Campo requerido',
-                },
-               
-            },               
+            },            
         });
-        $('#estado').change(function(){
-            var id_estado = $(this).val(); 
-            $.post(URLSITE+'backend/proveedores/municipios',{id_estado:id_estado},function(data){
-                $('#municipios').html(data);
-            });
-        });
+        
         
     });
 </script>
