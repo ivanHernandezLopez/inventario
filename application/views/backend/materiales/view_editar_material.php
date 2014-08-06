@@ -47,6 +47,11 @@
                                     <?php endforeach; ?>
                                 </select>
                             </div>
+                            <div class="form-group">
+                                <label>Precio <span class="required">*</span></label>
+                                <input class="form-control" type="text" name="dsc_precio" value="<?php echo $material->dsc_precio; ?>">
+                                </select>
+                            </div>
                            <div class="form-group">
                                 <label>Razón social de la empresa <span class="required">*</span></label>
                                 <select class="form-control" name="id_catproveedor">

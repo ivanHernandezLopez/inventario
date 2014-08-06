@@ -439,3 +439,13 @@
 --
 #0 /var/www/inventario/index.php(109): Kohana_Request->execute()
 #1 {main}
+2014-08-05 22:31:29 --- ERROR: HTTP_Exception_404 [ 404 ]: Unable to find a route to match the URI: assets/css/plugins/images/sort_both.png ~ SYSPATH/classes/kohana/request.php [ 1152 ]
+2014-08-05 22:31:29 --- STRACE: HTTP_Exception_404 [ 404 ]: Unable to find a route to match the URI: assets/css/plugins/images/sort_both.png ~ SYSPATH/classes/kohana/request.php [ 1152 ]
+--
+#0 /var/www/inventario/index.php(109): Kohana_Request->execute()
+#1 {main}
+2014-08-05 22:37:37 --- ERROR: HTTP_Exception_404 [ 404 ]: Unable to find a route to match the URI: assets/css/plugins/images/sort_both.png ~ SYSPATH/classes/kohana/request.php [ 1152 ]
+2014-08-05 22:37:37 --- STRACE: HTTP_Exception_404 [ 404 ]: Unable to find a route to match the URI: assets/css/plugins/images/sort_both.png ~ SYSPATH/classes/kohana/request.php [ 1152 ]
+--
+#0 /var/www/inventario/index.php(109): Kohana_Request->execute()
+#1 {main}

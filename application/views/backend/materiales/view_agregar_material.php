@@ -47,6 +47,11 @@
                                     <?php endforeach; ?>
                                 </select>
                             </div>
+                            <div class="form-group">
+                                <label>Precio <span class="required">*</span></label>
+                                <input class="form-control" type="text" name="dsc_precio" >
+                                </select>
+                            </div>
                            <div class="form-group">
                                 <label>Razón social de la empresa <span class="required">*</span></label>
                                 <select class="form-control" name="id_catproveedor">
@@ -80,7 +85,8 @@
                 dsc_nombre: 'required',
                 id_catfamilia: 'required',
                 id_catunidad: 'required',
-                id_catproveedor: 'required',                      
+                id_catproveedor: 'required',
+                dsc_precio:'required',                      
             },
             messages:{
                 cod_sap:{

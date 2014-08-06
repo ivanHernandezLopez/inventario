@@ -13,6 +13,7 @@ class Model_Catmateriales extends ORM {
 		$query->id_catfamilia = $post["id_catfamilia"];
 		$query->id_catunidad = $post["id_catunidad"];
 		$query->id_catproveedor = $post["id_catproveedor"];
+		$query->dsc_precio = $post["dsc_precio"];
 		$query->sta_baja = "N";
 		if($id==0)
 			$query->fec_alta = date("Y-m-d");
