@@ -9,9 +9,7 @@ class Controller_Backend_Proveedores extends Controller_Core_Backend implements 
 		$this->titulo = "PANEL DE ADMINISTRACIÓN DE PROVEEDORES";
 		parent::before();
 		$this->catproveedores = new Model_Catproveedores();
-		$this->catestados = new Model_Catestados();
-		$this->detmunicipios = new MOdel_Detmunicipios();
-		//$this->detcontactos = new Model_Detcontactos();
+		
 
 	}
 	public function action_index()
@@ -44,7 +42,6 @@ class Controller_Backend_Proveedores extends Controller_Core_Backend implements 
 			}
 		}
 		$this->body = View::factory("backend/proveedores/view_agregar_proveedor")->set(array(
-				"estados"	=> $this->catestados->select_registros_activos(),
 				"msg"	=> $msg,
 				"error"	=> $error,
 			));
@@ -86,12 +83,6 @@ class Controller_Backend_Proveedores extends Controller_Core_Backend implements 
 		$this->catproveedores->UpdateStatus("id_catproveedor",$id);
 	}
 
-	public function action_contactos()
-	{
-		$this->body = View::factory("backend/proveedores/view_agregar_contacto")->set(array(
-				"post"	=> $_POST,
-			));
-	}
 
 	//Metodos internos para validacion KOHANA
 	public function valida_post()
@@ -107,14 +98,5 @@ class Controller_Backend_Proveedores extends Controller_Core_Backend implements 
 		 
 	}
 
-	//Consulta los municipios del estado seleccionado
-	public function action_municipios()
-	{
-		$id = $_POST["id_estado"];
-		$municipios = $this->detmunicipios->FindByAll("id_catestado",$id);
-		$this->body = View::factory("backend/varios/view_municipios")->set(array(
-				"municipios"	=> $municipios,
-			));
-	}
 
 } 
