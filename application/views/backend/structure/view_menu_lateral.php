@@ -27,10 +27,10 @@
                 </a>
             </li>
             <li>
-                <a href="#" style="color:#fff !important;"><i class="fa fa-bar-chart-o fa-fw"></i> Menu desplegable<span class="fa arrow"></span></a>
+                <a href="#" style="color:#fff !important;"><i class="fa fa-bar-chart-o fa-fw"></i> Adquisiciones<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
-                        <a href="#" style="color:#fff !important;">Opcion 1</a>
+                        <a href="<?php echo URL::base(); ?>backend/adquisiciones/agregar" style="color:#fff !important;">Nueva adquisicion</a>
                     </li>
                     <li>
                         <a href="#" style="color:#fff !important;">Opcion 1</a>

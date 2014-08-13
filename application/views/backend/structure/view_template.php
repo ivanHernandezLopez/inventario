@@ -29,5 +29,6 @@
 </body>
     <script>
         $('#side-menu').metisMenu() //Script para el menu desplegable;
+        
     </script>
 </html>

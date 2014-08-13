@@ -87,6 +87,14 @@ class Controller_Backend_Materiales extends Controller_Core_Backend implements S
 		$this->catmateriales->UpdateStatus("id_catmaterial",$id);
 	}
 
+	public function action_proveedor()
+	{
+		$this->body = View::factory("backend/materiales/view_proveedores")->set(array(
+				"proveedores"	=> $this->catproveedores->select_registros_activos(),
+				"num"	=> $_POST["num"],		
+			));
+	}
+
 	public function validate_post()
 	{
 		return Validation::factory($_POST)

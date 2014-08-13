@@ -47,22 +47,12 @@
                                     <?php endforeach; ?>
                                 </select>
                             </div>
-                            <div class="form-group">
-                                <label>Precio <span class="required">*</span></label>
-                                <input class="form-control" type="text" name="dsc_precio" >
-                                </select>
+                            
+                            <div id="proveedores" >
+                                <button type="button" class="btn btn-default agregar_proveedor" style="float:right;">AGREGAR PROVEEDOR</button>
                             </div>
-                           <div class="form-group">
-                                <label>Razón social de la empresa <span class="required">*</span></label>
-                                <select class="form-control" name="id_catproveedor">
-                                    <option value="">Seleccion un proveedor...</option>
-                                     <?php foreach($proveedores as $proveedor): ?>
-                                        <option value="<?php echo $proveedor->id_catproveedor; ?>">
-                                            <?php echo $proveedor->dsc_razon_social; ?>
-                                        </option>
-                                    <?php endforeach; ?>
-                                </select>
-                            </div>
+
+                            <br/><br/><br/>
                             <button type="submit" class="btn btn-default">Guardar</button>
                             <button type="reset" class="btn btn-default">Cancelar</button>
                         </form>
@@ -106,5 +96,12 @@
                 },
             },       
         });
+
+         $('.agregar_proveedor').click(function(){
+            var num = $('.provedores_form').length+1;
+            $.post(URLSITE+'backend/materiales/proveedor',{num:num},function(data){
+                $('#proveedores').prepend(data);
+            });
+         });
     });
 </script>
