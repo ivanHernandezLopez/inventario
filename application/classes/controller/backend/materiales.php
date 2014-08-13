@@ -12,6 +12,7 @@ class Controller_Backend_Materiales extends Controller_Core_Backend implements S
 		$this->catmateriales = new Model_Catmateriales();
 		$this->catproveedores = new Model_Catproveedores();
 		$this->catfamilias = new Model_Catfamilias();
+		$this->catmatprov = new Model_Catmatprov();
 	}
 
 	public function action_index()
@@ -36,15 +37,20 @@ class Controller_Backend_Materiales extends Controller_Core_Backend implements S
 			{
 				$msg = "Un error ocurrio durante la acción, intentelo mas tarde.";
 				$error   = "warning";
-				if($this->catmateriales->agregar_editar($post,0))
+				$provs = count($_POST["dsc_precio"]);
+				$id_mat  = $this->catmateriales->agregar_editar($post,0);
+				if($id_mat!='')
 				{
+					for($i=0;$i<$provs;$i++)
+					{
+						$this->catmatprov->add_proveedor($id_mat,$_POST["id_catproveedor"][$i],$_POST["dsc_precio"][$i],$_POST["id"][$i]);
+					}
 					$msg = "Registro insertado correctamente"; $error="success";
 				}
 			}
 		}
 		$this->body = View::factory("backend/materiales/view_agregar_material")->set(array(
 				"unidades"	=> $this->catunidades->select_registros_activos(),
-				"proveedores"	=> $this->catproveedores->select_registros_activos(),
 				"familias"	=> $this->catfamilias->select_registros_activos(),
 				"error"	=> $error,
 				"msg"	=> $msg,
@@ -65,8 +71,13 @@ class Controller_Backend_Materiales extends Controller_Core_Backend implements S
 			{
 				$msg = "Un error ocurrio durante la acción, intentelo mas tarde.";
 				$error   = "warning";
+				$provs = count($_POST["dsc_precio"]);
 				if($this->catmateriales->agregar_editar($post,$id))
 				{
+					for($i=0;$i<$provs;$i++)
+					{
+						$this->catmatprov->add_proveedor($id,$_POST["id_catproveedor"][$i],$_POST["dsc_precio"][$i],$_POST["id"][$i]);
+					}
 					$msg = "Registro actualizado correctamente"; $error="success";
 				}
 			}
@@ -75,6 +86,7 @@ class Controller_Backend_Materiales extends Controller_Core_Backend implements S
 				"material"	=> $this->catmateriales->FindBy("id_catmaterial",$id),
 				"unidades"	=> $this->catunidades->select_registros_activos(),
 				"proveedores"	=> $this->catproveedores->select_registros_activos(),
+				"provs"			=> $this->catmatprov->registros_activos($id),
 				"familias"	=> $this->catfamilias->select_registros_activos(),
 				"error"	=> $error,
 				"msg"	=> $msg,
@@ -93,6 +105,12 @@ class Controller_Backend_Materiales extends Controller_Core_Backend implements S
 				"proveedores"	=> $this->catproveedores->select_registros_activos(),
 				"num"	=> $_POST["num"],		
 			));
+	}
+
+	public function action_eliminarp()
+	{
+		$id = $_POST["id"];
+		$this->catmatprov->UpdateStatus("id_catmatprov",$id);
 	}
 
 	public function validate_post()

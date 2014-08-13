@@ -12,8 +12,7 @@ class Model_Catmateriales extends ORM {
 		$query->dsc_descripcion = $post["dsc_descripcion"];
 		$query->id_catfamilia = $post["id_catfamilia"];
 		$query->id_catunidad = $post["id_catunidad"];
-		$query->id_catproveedor = $post["id_catproveedor"];
-		$query->dsc_precio = $post["dsc_precio"];
+		
 		$query->sta_baja = "N";
 		if($id==0)
 			$query->fec_alta = date("Y-m-d");
@@ -29,13 +28,12 @@ class Model_Catmateriales extends ORM {
  				catmateriales.id_catmaterial,
 				catmateriales.cod_producto,
 				catmateriales.dsc_nombre,
-				catfamilias.num_familia as familia,
-				catunidades.dsc_nombre as unidad,
-				CONCAT(catproveedores.dsc_razon_social) as proveedor
+				catfamilias.dsc_descripcion as familia,
+				catunidades.dsc_nombre as unidad
 				FROM catmateriales	
 				INNER JOIN catfamilias ON catfamilias.id_catfamilia = catmateriales.id_catfamilia
 				INNER JOIN catunidades ON catunidades.id_catunidad = catmateriales.id_catunidad
-				INNER JOIN catproveedores ON catproveedores.id_catproveedor = catmateriales.id_catproveedor
+				
 				WHERE catmateriales.sta_baja = 'N'";
 		return $this->selectDB($sql);
  	}

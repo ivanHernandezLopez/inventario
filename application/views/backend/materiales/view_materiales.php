@@ -22,7 +22,7 @@
                     <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                         <thead>
                             <tr>
-                                <th colspan="6">Datos del material</th>
+                                <th colspan="5">Datos del material</th>
                                 <th colspan="2" width="60px">Acciones</th>
                             </tr>
                             <tr>
@@ -31,7 +31,7 @@
                                 <th>Nombre</th>
                                 <th>Familia</th>
                                 <th>Unidad</th>
-                                <th>Proveedor</th>  
+                                  
                                 <th width="30px">Editar</th>
                                 <?php if($usuario->tipo_usuario==1 OR $usuario->tipo_usuario==2): ?>
                                 <th width="30px">Eliminar</th>         
@@ -46,7 +46,7 @@
                                 <td><?php echo $material->dsc_nombre; ?></td>
                                 <td><?php echo $material->familia; ?></td>
                                 <td><?php echo $material->unidad; ?></td>
-                                <td><?php echo $material->proveedor; ?></td>
+                                
                                 <td>
                                     <a href="<?php echo URL::base(); ?>backend/materiales/editar/<?php echo $material->id_catmaterial; ?>" title="Editar usuario">
                                         <span class="glyphicon glyphicon-pencil"></span>

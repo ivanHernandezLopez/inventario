@@ -47,22 +47,42 @@
                                     <?php endforeach; ?>
                                 </select>
                             </div>
+                            
+
+                            <div id="proveedores" >
+                            <?php $i=1; foreach($provs as $prov): ?>
+                            <div class="provedores_form" id="div<?php echo $i; ?>">
+                            <button type="button" class="btn btn-default eliminar" id="<?php echo $i; ?>" style="float:right;margin-top:25px;background:red;border-color:red;">X</button>
+                            <input type="hidden" id="id<?php echo $i; ?>" value="<?php echo $prov->id_catmatprov; ?>" name="id[]">
                             <div class="form-group">
-                                <label>Precio <span class="required">*</span></label>
-                                <input class="form-control" type="text" name="dsc_precio" value="<?php echo $material->dsc_precio; ?>">
-                                </select>
-                            </div>
-                           <div class="form-group">
                                 <label>Razón social de la empresa <span class="required">*</span></label>
-                                <select class="form-control" name="id_catproveedor">
+                                <select class="form-control" name="id_catproveedor[]" style="width:90%">
                                     <option value="">Seleccion un proveedor...</option>
                                      <?php foreach($proveedores as $proveedor): ?>
-                                        <option value="<?php echo $proveedor->id_catproveedor; ?>" <?php if($proveedor->id_catproveedor==$material->id_catproveedor) echo "selected"; ?>>
+                                        <option value="<?php echo $proveedor->id_catproveedor; ?>" <?php if($prov->id_proveedor==$proveedor->id_catproveedor) echo "selected"; ?>>
                                             <?php echo $proveedor->dsc_razon_social; ?>
                                         </option>
                                     <?php endforeach; ?>
                                 </select>
                             </div>
+                            <div class="form-group">
+                                <label>Precio <span class="required">*</span></label>
+                                <input class="form-control" type="text" name="dsc_precio[]" value="<?php echo $prov->dsc_precio; ?>">
+                                </select>
+                            </div>
+
+                            </div>
+                            <?php $i++; endforeach; ?>
+                            <button type="button" class="btn btn-default agregar_proveedor" style="float:right;">AGREGAR PROVEEDOR</button>
+                            </div>
+
+
+
+
+
+
+
+
                             <?php if($usuario->tipo_usuario==1 OR $usuario->tipo_usuario==2): ?>
                             <button type="submit" class="btn btn-default">Guardar</button>
                             <button type="reset" class="btn btn-default">Cancelar</button>
@@ -81,6 +101,24 @@
 </div>
 <script>
     $(document).ready(function(){
+
+        $('.eliminar').click(function(){
+            var id = $(this).attr('id');
+            var id_catmatprov = $('#id'+id).val();
+            $.post(URLSITE+'backend/materiales/eliminarp',{id:id_catmatprov},function(){
+                $('#div'+id).remove();
+            });
+            
+        });
+
+        $('.agregar_proveedor').click(function(){
+            var num = $('.provedores_form').length+1;
+            $.post(URLSITE+'backend/materiales/proveedor',{num:num},function(data){
+                $('#proveedores').prepend(data);
+            });
+         });
+
+
          $("#material").validate({
             rules: {
                 cod_sap:'required',

@@ -1,5 +1,6 @@
 <div class="provedores_form" id="div<?php echo $num; ?>">
 <button type="button" class="btn btn-default eliminar" id="<?php echo $num; ?>" style="float:right;margin-top:25px;background:red;border-color:red;">X</button>
+<input type="hidden" value="0" name="id[]">
 <div class="form-group">
     <label>Razón social de la empresa <span class="required">*</span></label>
     <select class="form-control" name="id_catproveedor[]" style="width:90%">
