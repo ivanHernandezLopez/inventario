@@ -3,11 +3,13 @@
 class Controller_Backend_Adquisiciones extends Controller_Core_Backend {
 
 	protected $catmateriales;
+	protected $catmatprov;
 	public function before()
 	{
 		$this->titulo = "PANEL DE ADMINISTRACIÓN DE FAMILIAS";
 		parent::before();
 		$this->catmateriales = new Model_Catmateriales();
+		$this->catmatprov = new Model_Catmatprov();
 	}
 
 	public function action_index()
@@ -34,7 +36,7 @@ class Controller_Backend_Adquisiciones extends Controller_Core_Backend {
 	{
 		if($_POST)
 		{
-			$materiales = $this->catmateriales->materiales($_POST["nombre"],$_POST["codigo"]);
+			$materiales = $this->catmatprov->materiales($_POST["nombre"],$_POST["codigo"]);
 			$this->body = View::factory("backend/adquisiciones/view_materiales_encontrados")->set("materiales",$materiales);
 		}
 	}

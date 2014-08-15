@@ -23,4 +23,37 @@ class Model_Catmatprov extends ORM {
 	{
 		return ORM::factory($this->table_name())->where("id_material","=",$id)->where("sta_baja","=","N")->find_all();
 	}
+
+	public function materiales($nombre,$codigo)
+ 	{
+ 		$sql = "SELECT 
+ 				catmateriales.cod_producto,
+ 				catmateriales.id_catmaterial,
+ 				catmateriales.dsc_nombre,
+ 				catmateriales.dsc_descripcion,
+ 				catmatprov.dsc_precio,
+ 				catunidades.dsc_nombre as unidad,
+ 				catproveedores.dsc_razon_social as proveedor
+ 				FROM catmatprov				
+ 				INNER JOIN catmateriales ON catmatprov.id_material = catmateriales.id_catmaterial
+ 				INNER JOIN catunidades ON catmateriales.id_catunidad=catunidades.id_catunidad
+ 				INNER JOIN catproveedores ON catmatprov.id_proveedor = catproveedores.id_catproveedor
+ 				";
+ 		
+ 		if($nombre!="")
+ 		{
+ 			$sql .= " where catmateriales.dsc_nombre = '".$nombre."'";
+ 		}
+ 		if($codigo!="" AND $nombre=="")
+ 		{
+ 			$sql .= " where catmateriales.cod_producto = ".$codigo;
+ 		}
+ 		if($codigo!="" AND $nombre!="")
+ 		{
+ 			$sql .= " AND catmateriales.cod_producto = ".$codigo;
+ 		}
+
+
+ 		return $this->selectDB($sql);
+ 	}
 }

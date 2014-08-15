@@ -38,33 +38,4 @@ class Model_Catmateriales extends ORM {
 		return $this->selectDB($sql);
  	}
 
- 	public function materiales($nombre,$codigo)
- 	{
- 		$sql = "SELECT 
- 				catmateriales.cod_producto,
- 				catmateriales.id_catmaterial,
- 				catmateriales.dsc_nombre,
- 				catmateriales.dsc_descripcion,
- 				catmateriales.dsc_precio,
- 				catunidades.dsc_nombre as unidad,
- 				catproveedores.dsc_razon_social as proveedor
- 				FROM catmateriales
- 				INNER JOIN catunidades ON catmateriales.id_catunidad = catunidades.id_catunidad
- 				INNER JOIN catproveedores ON catmateriales.id_catproveedor = catproveedores.id_catproveedor
- 				";
- 		
- 		if($nombre!="")
- 		{
- 			$sql .= " where catmateriales.dsc_nombre = '".$nombre."'";
- 		}
- 		if($codigo!="" AND $nombre=="")
- 		{
- 			$sql .= " where catmateriales.cod_producto = ".$codigo;
- 		}
- 		if($codigo!="" AND $nombre!="")
- 		{
- 			$sql .= " AND catmateriales.cod_producto = ".$codigo;
- 		}
- 		return $this->selectDB($sql);
- 	}
 }

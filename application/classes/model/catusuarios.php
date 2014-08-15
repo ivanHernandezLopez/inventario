@@ -35,6 +35,7 @@ class Model_Catusuarios extends ORM {
 		$perfil->dsc_apellido_pat = $post["dsc_apellido_pat"];
 		$perfil->dsc_apellido_mat = $post["dsc_apellido_mat"];
 		$perfil->dsc_correo = $post["dsc_correo"];
+		$perfil->tipo_usuario = $post["tipo_usuario"];
 		$perfil->sta_baja = "N";
 		if($post["dsc_contrasena"]!="")
 			$perfil->dsc_contrasena = $a1->hash($post["dsc_contrasena"]);
