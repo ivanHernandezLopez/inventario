@@ -25,7 +25,7 @@
                 <td><?php echo $material->unidad; ?></td>
                 <td><?php echo $material->dsc_precio; ?></td>
                 <td><?php echo $material->proveedor; ?></td>
-                <td><button type="button" class="agregar" id="" class="btn btn-default">Seleccionar</button></td>
+                <td><button type="button" class="agregar" id="<?php echo $material->id_catmaterial; ?>" class="btn btn-default">Seleccionar</button></td>
                 
 
             </tr> 
@@ -37,7 +37,11 @@
 
 <script>
     $('.agregar').click(function(){
-        console.log('123')
+        $.post(URLSITE+'backend/adquisiciones/material',{id:id},function(data){
+            console.log(data);
+        });
+
+
         $('#form').css('display','block');
         $('#tabla').css('display','none');
         $('#table-responsive').css('display','none');

@@ -41,4 +41,12 @@ class Controller_Backend_Adquisiciones extends Controller_Core_Backend {
 		}
 	}
 
+	public function action_material()
+	{
+		$this->simple = TRUE;
+		$material = ORM::factory("catmateriales")->where("id_catmaterial","=",$_POST["id"])->find();
+
+		$this->body = array("material"=>$material);
+	}
+
 }
